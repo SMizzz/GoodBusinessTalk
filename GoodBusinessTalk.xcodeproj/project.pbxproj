@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,12 +13,16 @@
 		021B989026C4E9EB00E32ACA /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B988F26C4E9EB00E32ACA /* PostData.swift */; };
 		021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B989526C586E700E32ACA /* PostTableViewCell.swift */; };
 		021B989826C586E700E32ACA /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021B989626C586E700E32ACA /* PostTableViewCell.xib */; };
+		023AFA8126C9F2A200D3C064 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */; };
 		028ECF9F26C44C3600D74716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECF9E26C44C3600D74716 /* AppDelegate.swift */; };
 		028ECFA126C44C3600D74716 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECFA026C44C3600D74716 /* SceneDelegate.swift */; };
 		028ECFA626C44C3600D74716 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA426C44C3600D74716 /* Main.storyboard */; };
 		028ECFA826C44C3900D74716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA726C44C3900D74716 /* Assets.xcassets */; };
 		028ECFAB26C44C3900D74716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA926C44C3900D74716 /* LaunchScreen.storyboard */; };
 		028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECFB326C44D1200D74716 /* MainViewController.swift */; };
+		02E0299D26C971DC00EBB2BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E0299C26C971DC00EBB2BB /* LoginViewController.swift */; };
+		02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E0299E26C971E300EBB2BB /* SignupViewController.swift */; };
+		5236953F0235688DFBFC6604 /* Pods_GoodBusinessTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D6164171439D4421CB7743 /* Pods_GoodBusinessTalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,8 @@
 		021B988F26C4E9EB00E32ACA /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		021B989526C586E700E32ACA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		021B989626C586E700E32ACA /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodBusinessTalk.entitlements; sourceTree = "<group>"; };
 		028ECF9B26C44C3600D74716 /* GoodBusinessTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodBusinessTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028ECF9E26C44C3600D74716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028ECFA026C44C3600D74716 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,11 @@
 		028ECFAA26C44C3900D74716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028ECFAC26C44C3900D74716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028ECFB326C44D1200D74716 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02E0299C26C971DC00EBB2BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		02E0299E26C971E300EBB2BB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		3B4CDDD279668C68B58F99ED /* Pods-GoodBusinessTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodBusinessTalk.release.xcconfig"; path = "Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk.release.xcconfig"; sourceTree = "<group>"; };
+		A73D7F22EA9696B89866050B /* Pods-GoodBusinessTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodBusinessTalk.debug.xcconfig"; path = "Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		F5D6164171439D4421CB7743 /* Pods_GoodBusinessTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodBusinessTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5236953F0235688DFBFC6604 /* Pods_GoodBusinessTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +83,8 @@
 			children = (
 				028ECF9D26C44C3600D74716 /* GoodBusinessTalk */,
 				028ECF9C26C44C3600D74716 /* Products */,
+				34C5A0A561A76195BEC184FF /* Pods */,
+				24BE3F1E2B64966D288C31E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,15 +99,18 @@
 		028ECF9D26C44C3600D74716 /* GoodBusinessTalk */ = {
 			isa = PBXGroup;
 			children = (
+				023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */,
 				021B988A26C4E54F00E32ACA /* Font */,
 				028ECF9E26C44C3600D74716 /* AppDelegate.swift */,
 				028ECFA026C44C3600D74716 /* SceneDelegate.swift */,
+				02E0299926C9719800EBB2BB /* Auth */,
 				028ECFB226C44CF200D74716 /* Main */,
 				021B988726C4BA6B00E32ACA /* Compose */,
 				028ECFA426C44C3600D74716 /* Main.storyboard */,
 				028ECFA726C44C3900D74716 /* Assets.xcassets */,
 				028ECFA926C44C3900D74716 /* LaunchScreen.storyboard */,
 				028ECFAC26C44C3900D74716 /* Info.plist */,
+				023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */,
 			);
 			path = GoodBusinessTalk;
 			sourceTree = "<group>";
@@ -109,6 +126,48 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		02E0299926C9719800EBB2BB /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				02E0299B26C971AC00EBB2BB /* Login */,
+				02E0299A26C971A000EBB2BB /* Signup */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		02E0299A26C971A000EBB2BB /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				02E0299E26C971E300EBB2BB /* SignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		02E0299B26C971AC00EBB2BB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				02E0299C26C971DC00EBB2BB /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		24BE3F1E2B64966D288C31E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5D6164171439D4421CB7743 /* Pods_GoodBusinessTalk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34C5A0A561A76195BEC184FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A73D7F22EA9696B89866050B /* Pods-GoodBusinessTalk.debug.xcconfig */,
+				3B4CDDD279668C68B58F99ED /* Pods-GoodBusinessTalk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 028ECFAF26C44C3900D74716 /* Build configuration list for PBXNativeTarget "GoodBusinessTalk" */;
 			buildPhases = (
+				3EDEBE06A660EADA311E2B83 /* [CP] Check Pods Manifest.lock */,
 				028ECF9726C44C3600D74716 /* Sources */,
 				028ECF9826C44C3600D74716 /* Frameworks */,
 				028ECF9926C44C3600D74716 /* Resources */,
+				1CB05D0DB7546D196CBD6F8F /* [CP] Embed Pods Frameworks */,
+				513800888118786F90296495 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,17 +234,79 @@
 				021B989826C586E700E32ACA /* PostTableViewCell.xib in Resources */,
 				021B988D26C4E55B00E32ACA /* Spoqa Han Sans Bold.ttf in Resources */,
 				028ECFA626C44C3600D74716 /* Main.storyboard in Resources */,
+				023AFA8126C9F2A200D3C064 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CB05D0DB7546D196CBD6F8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EDEBE06A660EADA311E2B83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoodBusinessTalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		513800888118786F90296495 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoodBusinessTalk/Pods-GoodBusinessTalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		028ECF9726C44C3600D74716 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E0299D26C971DC00EBB2BB /* LoginViewController.swift in Sources */,
 				021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */,
+				02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */,
 				021B988926C4BAB900E32ACA /* ComposeViewController.swift in Sources */,
 				021B989026C4E9EB00E32ACA /* PostData.swift in Sources */,
 				028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */,
@@ -331,9 +455,11 @@
 		};
 		028ECFB026C44C3900D74716 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A73D7F22EA9696B89866050B /* Pods-GoodBusinessTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoodBusinessTalk/GoodBusinessTalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MK3P338UQW;
 				INFOPLIST_FILE = GoodBusinessTalk/Info.plist;
@@ -350,9 +476,11 @@
 		};
 		028ECFB126C44C3900D74716 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4CDDD279668C68B58F99ED /* Pods-GoodBusinessTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GoodBusinessTalk/GoodBusinessTalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MK3P338UQW;
 				INFOPLIST_FILE = GoodBusinessTalk/Info.plist;

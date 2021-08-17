@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let _ = (scene as? UIWindowScene) else { return }
+  }
+  
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let scheme = URLContexts.first?.url.scheme else { return }
+    if scheme.contains("com.googleusercontent.apps") {
+        GIDSignIn.sharedInstance().handle(URLContexts.first?.url)
+    }
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {

@@ -1,0 +1,6 @@
+framework module Pods_GoodBusinessTalk {
+  umbrella header "Pods-GoodBusinessTalk-umbrella.h"
+
+  export *
+  module * { export * }
+}

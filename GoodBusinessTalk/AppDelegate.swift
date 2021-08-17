@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import AuthenticationServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    FirebaseApp.configure()
+    GIDSignIn.sharedInstance().clientID = "3534659010-pfv2d9sr9jafi34sbsne2g31ifh6c3cv.apps.googleusercontent.com"
+    
+//    let appleIDProvider = ASAuthorizationAppleIDProvider()
+//    appleIDProvider.getCredentialState(
+//    forUserID: /* 로그인에 사용한 User Identifier */) { (credentialState, error) in
+//      switch credentialState {
+//      case .authorized:
+//        // The Apple ID credential is valid.
+//        print("해당 ID는 연동되어있습니다.")
+//      case .revoked:
+//      // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+//      print("해당 ID는 연동되어있지않습니다.")
+//      case .notFound:
+//        // The Apple ID credential is either was not found, so show the sign-in UI.
+//        print("해당 ID를 찾을 수 없습니다.")
+//      default:
+//        break
+//      }
+//    }
     return true
   }
 
