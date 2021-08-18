@@ -14,6 +14,8 @@
 		021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B989526C586E700E32ACA /* PostTableViewCell.swift */; };
 		021B989826C586E700E32ACA /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021B989626C586E700E32ACA /* PostTableViewCell.xib */; };
 		023AFA8126C9F2A200D3C064 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */; };
+		023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C174C26CBEEDC00DFE754 /* RecentViewController.swift */; };
+		023C174F26CBEEE400DFE754 /* BestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C174E26CBEEE400DFE754 /* BestViewController.swift */; };
 		028ECF9F26C44C3600D74716 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECF9E26C44C3600D74716 /* AppDelegate.swift */; };
 		028ECFA126C44C3600D74716 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECFA026C44C3600D74716 /* SceneDelegate.swift */; };
 		028ECFA626C44C3600D74716 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA426C44C3600D74716 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		021B989626C586E700E32ACA /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodBusinessTalk.entitlements; sourceTree = "<group>"; };
+		023C174C26CBEEDC00DFE754 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		023C174E26CBEEE400DFE754 /* BestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestViewController.swift; sourceTree = "<group>"; };
 		028ECF9B26C44C3600D74716 /* GoodBusinessTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodBusinessTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028ECF9E26C44C3600D74716 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028ECFA026C44C3600D74716 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,22 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		023C174A26CBEEBE00DFE754 /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				023C174C26CBEEDC00DFE754 /* RecentViewController.swift */,
+			);
+			path = Recent;
+			sourceTree = "<group>";
+		};
+		023C174B26CBEEC300DFE754 /* Best */ = {
+			isa = PBXGroup;
+			children = (
+				023C174E26CBEEE400DFE754 /* BestViewController.swift */,
+			);
+			path = Best;
+			sourceTree = "<group>";
+		};
 		028ECF9226C44C3600D74716 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +140,8 @@
 			children = (
 				021B988F26C4E9EB00E32ACA /* PostData.swift */,
 				028ECFB326C44D1200D74716 /* MainViewController.swift */,
+				023C174A26CBEEBE00DFE754 /* Recent */,
+				023C174B26CBEEC300DFE754 /* Best */,
 				021B989526C586E700E32ACA /* PostTableViewCell.swift */,
 				021B989626C586E700E32ACA /* PostTableViewCell.xib */,
 			);
@@ -304,9 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C174F26CBEEE400DFE754 /* BestViewController.swift in Sources */,
 				02E0299D26C971DC00EBB2BB /* LoginViewController.swift in Sources */,
 				021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */,
 				02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */,
+				023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */,
 				021B988926C4BAB900E32ACA /* ComposeViewController.swift in Sources */,
 				021B989026C4E9EB00E32ACA /* PostData.swift in Sources */,
 				028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */,

@@ -6,83 +6,128 @@
 //
 
 import UIKit
+import Tabman
+import Pageboy
 
-class MainViewController: UIViewController {
+class MainViewController: TabmanViewController {
   
+  private var viewControllers: Array<UIViewController> = []
+  
+  @IBOutlet weak var composeBackgroundView: UIView!
   @IBOutlet weak var composeTextField: UITextField!
   @IBOutlet weak var composeButton: UIButton!
+  @IBOutlet weak var tabmanView: UIView!
   
-  
-  
-  var postData = [
-    Post(nickName: "잠보", levelTitle: "인턴", date: "2021.08.09 18:27", feedDescriptionLabel: "회사 다니는 이유가 뭔가요? \n1. 월급 주니까 \n2. 로또 안 맞아서 \n3. 일이 맘에 들어서"),
-    Post(nickName: "미지의세계", levelTitle: "사원", date: "2021.08.09 18:27", feedDescriptionLabel: "안녕하세요. 3년간 회사 다니고 쉬다가 회사 이직할라고 최근에 공고 넣고 있는데\n일주일전에 넣은 회사가 지금 이 시간에 연락이 왔습니다;;\n전화는 안 오고 저 문자 딸랑왔는데 거르는게 맞을까요?"),
-    Post(nickName: "오즈", levelTitle: "부장", date: "2021.08.11 12:23", feedDescriptionLabel: "퇴사했습니다!!!")
-  ]
-  
-  @IBOutlet weak var tableView: UITableView!
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureButton()
-    configureTableView()
+    navigationBarView()
+    
+    configureTextField()
+    configureComposeView()
+    viewSetup()
+//    configureTableView()
+    
+  }
+  
+  private func navigationBarView() {
+    navigationController?.navigationBar.shadowImage = UIImage()
+  }
+  
+  private func configureTextField() {
     composeTextField.delegate = self
   }
   
-  private func configureTableView() {
-    tableView.delegate = self
-    tableView.dataSource = self
-    tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
-    tableView.estimatedRowHeight = 235
-    tableView.rowHeight = UITableView.automaticDimension
+  func viewSetup() {
+    let recentVC = self.storyboard?.instantiateViewController(withIdentifier: "RecentVC")
+    let bestVC = self.storyboard?.instantiateViewController(withIdentifier: "BestVC")
+    
+    viewControllers.append(recentVC!)
+    viewControllers.append(bestVC!)
+    self.dataSource = self
+    
+    let bar = TMBar.ButtonBar()
+    bar.backgroundView.style = .blur(style: .light)
+    bar.backgroundColor = .white
+    bar.layout.contentMode = .intrinsic
+    bar.layout.contentInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 55)
+    bar.layout.interButtonSpacing = 25
+    bar.layout.transitionStyle = .snap
+    bar.indicator.weight = .light
+    bar.indicator.tintColor = .black
+    bar.buttons.customize { (button) in
+      button.tintColor = .darkGray
+      button.selectedTintColor = .black
+      button.font = UIFont(name: "SpoqaHanSans-Bold", size: 15)!
+    }
+    addBar(bar, dataSource: self, at: .custom(view: tabmanView, layout: nil))
+  }
+  
+//
+//
+//
+  private func configureComposeView() {
+//    composeBackgroundView.layer.masksToBounds = true
+    composeButton.layer.masksToBounds = true
+    
+    composeBackgroundView.layer.cornerRadius = 25
+    composeButton.layer.cornerRadius = 15
+    
+//    composeBackgroundView.layer.masksToBounds = false
+    composeBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
+    composeBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 2)
+    composeBackgroundView.layer.shadowOpacity = 0.15
+    composeBackgroundView.layer.shadowRadius = 20
+    
     
   }
+}
 
+extension MainViewController:
+  PageboyViewControllerDataSource,
+  TMBarDataSource {
+  func numberOfViewControllers(
+    in pageboyViewController: PageboyViewController
+  ) -> Int {
+    return viewControllers.count
+  }
   
-  private func configureButton() {
-    composeButton.layer.masksToBounds = true
-    composeButton.layer.cornerRadius = 15
+  func viewController(
+    for pageboyViewController: PageboyViewController,
+    at index: PageboyViewController.PageIndex
+  ) -> UIViewController? {
+    return viewControllers[index]
+  }
+  
+  func defaultPage(
+    for pageboyViewController: PageboyViewController
+  ) -> PageboyViewController.Page? {
+    return nil
+  }
+  
+  func barItem(for bar: TMBar, at index: Int
+  ) -> TMBarItemable {
+    let item = TMBarItem(title: "")
+    if (index == 0) {
+      item.title = "최근"
+    } else if (index == 1) {
+      item.title = "인기"
+    }
+    return item
   }
 }
 
 extension MainViewController: UITextFieldDelegate {
+  
   func textFieldDidBeginEditing(_ textField: UITextField) {
+    composeTextField.resignFirstResponder()
     let mainSB = UIStoryboard(name: "Main", bundle: nil)
     let composeVC = mainSB.instantiateViewController(withIdentifier: "ComposeVC")
     navigationController?.pushViewController(composeVC, animated: true)
   }
 }
-
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(
-    _ tableView: UITableView,
-    numberOfRowsInSection section: Int
-  ) -> Int {
-    return postData.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-//    cell.post = postData[indexPath.row]
-    let posts = postData[indexPath.row]
-    cell.nicknameLabel.text = posts.nickName
-    cell.levelLabel.text = posts.levelTitle
-    cell.dateLabel.text = posts.date
-    cell.feedDescriptionLabel.text = posts.feedDescriptionLabel
-    if posts.feedDescriptionLabel.count > 50 {
-      cell.moreButton.isHidden = false
-    }
-    print(posts.feedDescriptionLabel.count)
-    return cell
-  }
-  
-  
-//  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//    guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell") as? PostTableViewCell else { return }
-//  }
-  
-  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    
-  }
-}
+//
 

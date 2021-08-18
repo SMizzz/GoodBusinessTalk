@@ -39,6 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
     return true
   }
+  
+  func checkFontName(){
+    let familyNames = UIFont.familyNames
+    var fontNames = [String]()
+    for familyName in familyNames {
+      print("family Name: \(familyName)")
+      fontNames = UIFont.fontNames(forFamilyName: familyName)
+      for fontName in fontNames {
+        print("font Name: \(fontName)")
+      }
+    }
+  }
 
   // MARK: UISceneSession Lifecycle
 
