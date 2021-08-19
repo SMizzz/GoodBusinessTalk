@@ -7,15 +7,17 @@
 
 import UIKit
 
+protocol RecentCellDelegate: AnyObject {
+  func moreButtonTapped(cell: PostTableViewCell)
+}
+
+protocol BestCellDelegate: AnyObject {
+  func moreButtonTapped(cell: PostTableViewCell)
+}
+
 class PostTableViewCell: UITableViewCell {
-//  var post: Post? {
-//    didSet {
-//      guard let posts = post else { return }
-//      nicknameLabel.text = posts.nickName
-//      feedDescriptionLabel.text = posts.feedDescriptionLabel
-//      
-//    }
-//  }
+  weak var recentDelegate: RecentCellDelegate?
+  weak var bestDelegate: BestCellDelegate?
   @IBOutlet weak var view: UIView!
   @IBOutlet weak var nicknameLabel: UILabel!
   @IBOutlet weak var levelLabel: UILabel!
@@ -29,6 +31,9 @@ class PostTableViewCell: UITableViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    let background = UIView()
+    background.backgroundColor = .clear
+    self.selectedBackgroundView = background
     view.layer.masksToBounds = false
     view.layer.shadowColor = UIColor.lightGray.cgColor
     view.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -45,4 +50,8 @@ class PostTableViewCell: UITableViewCell {
     
   }
   
+  @IBAction func moreBtnTapped(_ sender: Any) {
+    recentDelegate?.moreButtonTapped(cell: self)
+    bestDelegate?.moreButtonTapped(cell: self)
+  }
 }

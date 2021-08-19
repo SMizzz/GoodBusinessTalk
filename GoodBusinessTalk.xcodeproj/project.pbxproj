@@ -139,11 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				021B988F26C4E9EB00E32ACA /* PostData.swift */,
+				021B989526C586E700E32ACA /* PostTableViewCell.swift */,
+				021B989626C586E700E32ACA /* PostTableViewCell.xib */,
 				028ECFB326C44D1200D74716 /* MainViewController.swift */,
 				023C174A26CBEEBE00DFE754 /* Recent */,
 				023C174B26CBEEC300DFE754 /* Best */,
-				021B989526C586E700E32ACA /* PostTableViewCell.swift */,
-				021B989626C586E700E32ACA /* PostTableViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
