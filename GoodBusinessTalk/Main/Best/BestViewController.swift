@@ -91,12 +91,14 @@ extension BestViewController:
         cell.moreButton.isHidden = false
         if expandedIndexSet.contains(indexPath.row) {
           cell.feedDescriptionLabel.numberOfLines = 0
+          cell.moreButton.isHidden = true
+        } else {
           cell.moreButton.isHidden = false
           cell.moreButton.setTitle("..더보기", for: .normal)
         }
       } else {
         cell.feedDescriptionLabel.numberOfLines = 4
-        cell.moreButton.setTitle("", for: .normal)
+        cell.moreButton.isHidden = true
       }
       return cell
     }
@@ -122,10 +124,8 @@ extension BestViewController:
       if expandedIndexSet.contains(indexPath.row) {
         expandedIndexSet.remove(indexPath.row)
         cell.moreButton.setTitle("..더보기", for: .normal)
-        //          cell.moreButton.isHidden = false
       } else {
         expandedIndexSet.insert(indexPath.row)
-        //        cell.moreButton.setTitle("", for: .normal)
         cell.moreButton.isHidden = true
       }
       self.tableView.reloadRows(at: [indexPath], with: .automatic)

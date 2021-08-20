@@ -94,12 +94,14 @@ extension RecentViewController:
         cell.moreButton.isHidden = false
         if expandedIndexSet.contains(indexPath.row) {
           cell.feedDescriptionLabel.numberOfLines = 0
+          cell.moreButton.isHidden = true
+        } else {
           cell.moreButton.isHidden = false
           cell.moreButton.setTitle("..더보기", for: .normal)
         }
       } else {
         cell.feedDescriptionLabel.numberOfLines = 4
-        cell.moreButton.setTitle("", for: .normal)
+        cell.moreButton.isHidden = true
       }
       return cell
     }
@@ -150,7 +152,6 @@ extension RecentViewController: RecentCellDelegate {
       } else {
         expandedIndexSet.insert(indexPath!.row)
         cell.moreButton.isHidden = true
-//        cell.moreButton.setTitle("", for: .normal)
         print("펼쳐졌습니다.")
       }
     }

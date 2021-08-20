@@ -29,8 +29,6 @@ class MainViewController: TabmanViewController {
     configureTextField()
     configureComposeView()
     viewSetup()
-//    configureTableView()
-    
   }
   
   private func navigationBarView() {
@@ -61,29 +59,34 @@ class MainViewController: TabmanViewController {
     bar.buttons.customize { (button) in
       button.tintColor = .darkGray
       button.selectedTintColor = .black
-      button.font = UIFont(name: "SpoqaHanSans-Bold", size: 15)!
+      button.font = UIFont(name: "SpoqaHanSans-Bold", size: 17)!
     }
     addBar(bar, dataSource: self, at: .custom(view: tabmanView, layout: nil))
   }
   
-//
-//
-//
   private func configureComposeView() {
-//    composeBackgroundView.layer.masksToBounds = true
     composeButton.layer.masksToBounds = true
     
     composeBackgroundView.layer.cornerRadius = 25
     composeButton.layer.cornerRadius = 15
     
-//    composeBackgroundView.layer.masksToBounds = false
     composeBackgroundView.layer.shadowColor = UIColor.lightGray.cgColor
     composeBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 2)
     composeBackgroundView.layer.shadowOpacity = 0.15
     composeBackgroundView.layer.shadowRadius = 20
-    
-    
   }
+  
+  @IBAction func alarmBtnTap(_ sender: Any) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    let noticeVC = mainSB.instantiateViewController(withIdentifier: "NoticeVC")
+    navigationController?.pushViewController(noticeVC, animated: true)
+  }
+  @IBAction func settingBtnTap(_ sender: Any) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    let settingVC = mainSB.instantiateViewController(withIdentifier: "SettingVC")
+    navigationController?.pushViewController(settingVC, animated: true)
+  }
+  
 }
 
 extension MainViewController:
@@ -129,5 +132,3 @@ extension MainViewController: UITextFieldDelegate {
     navigationController?.pushViewController(composeVC, animated: true)
   }
 }
-//
-
