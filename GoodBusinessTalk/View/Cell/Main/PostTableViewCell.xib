@@ -94,6 +94,9 @@
                                         <state key="normal" title="  댓글" image="comment">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="commentBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="p39-e6-ece"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

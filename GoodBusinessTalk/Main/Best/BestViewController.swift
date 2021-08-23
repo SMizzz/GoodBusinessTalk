@@ -153,4 +153,9 @@ extension BestViewController: BestCellDelegate {
     tableView.reloadRows(at: [indexPath!], with: .automatic)
     tableView.scrollToRow(at: indexPath!, at: .bottom, animated: true)
   }
+  
+  func commentButtonTapped(cell: PostTableViewCell) {
+    let indexPath = tableView.indexPath(for: cell)
+    guard let detailPostVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPostVC") else { return }
+  }
 }

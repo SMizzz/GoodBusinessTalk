@@ -9,10 +9,12 @@ import UIKit
 
 protocol RecentCellDelegate: AnyObject {
   func moreButtonTapped(cell: PostTableViewCell)
+  func commentButtonTapped(cell: PostTableViewCell)
 }
 
 protocol BestCellDelegate: AnyObject {
   func moreButtonTapped(cell: PostTableViewCell)
+  func commentButtonTapped(cell: PostTableViewCell)
 }
 
 class PostTableViewCell: UITableViewCell {
@@ -53,5 +55,10 @@ class PostTableViewCell: UITableViewCell {
   @IBAction func moreBtnTapped(_ sender: Any) {
     recentDelegate?.moreButtonTapped(cell: self)
     bestDelegate?.moreButtonTapped(cell: self)
+  }
+  
+  @IBAction func commentBtnTapped(_ sender: Any) {
+    recentDelegate?.commentButtonTapped(cell: self)
+    bestDelegate?.commentButtonTapped(cell: self)
   }
 }

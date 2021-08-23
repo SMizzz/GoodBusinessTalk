@@ -24,8 +24,12 @@ class SettingViewController: UIViewController {
     tableView.register(
       UINib(nibName: "SettingProfileTableViewCell", bundle: nil),
       forCellReuseIdentifier: "SettingProfileTableViewCell")
+    tableView.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
   }
   
+  @IBAction func backBtnTap(_ sender: Any) {
+    navigationController?.popViewController(animated: true)
+  }
 }
 
 extension SettingViewController:
@@ -46,7 +50,7 @@ extension SettingViewController:
     } else if section == 1 {
       return settingInform.count
     }
-    return 1
+    return 0
   }
   
   func tableView(
@@ -61,14 +65,16 @@ extension SettingViewController:
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingDetailTableViewCell", for: indexPath)
       let informData = settingInform[indexPath.row]
+      cell.textLabel?.font = UIFont(name: "SpoqaHanSans-Bold", size: 13)
+      cell.detailTextLabel?.font = UIFont(name: "SpoqaHanSans-Regular", size: 13)
       if indexPath.row == 0 {
         cell.textLabel?.text = informData
-        cell.detailTextLabel?.text = "최신정보입니다."
+        cell.detailTextLabel?.text = "최신버전입니다."
         cell.accessoryType = .none
       } else {
         cell.textLabel?.text = informData
+        cell.detailTextLabel?.text = ""
       }
-      
       return cell
     }
     return UITableViewCell()
@@ -79,9 +85,28 @@ extension SettingViewController:
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
     if indexPath.section == 0 {
-      return 95.0
+      return 100.0
     } else if indexPath.section == 1 {
       return 50.0
+    }
+    return 0
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    viewForFooterInSection section: Int
+  ) -> UIView? {
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+    view.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+    return view
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    heightForFooterInSection section: Int
+  ) -> CGFloat {
+    if section == 0 {
+      return 30
     }
     return 0
   }

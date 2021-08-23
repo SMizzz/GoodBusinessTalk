@@ -90,7 +90,7 @@ extension RecentViewController:
       cell.feedDescriptionLabel.text = posts.feedDescriptionLabel
       print(posts.feedDescriptionLabel.count)
       
-      if posts.feedDescriptionLabel.count > 110 {
+      if posts.feedDescriptionLabel.count > 100 {
         cell.moreButton.isHidden = false
         if expandedIndexSet.contains(indexPath.row) {
           cell.feedDescriptionLabel.numberOfLines = 0
@@ -158,4 +158,13 @@ extension RecentViewController: RecentCellDelegate {
     tableView.reloadRows(at: [indexPath!], with: .automatic)
     tableView.scrollToRow(at: indexPath!, at: .bottom, animated: true)
   }
+  
+  func commentButtonTapped(cell: PostTableViewCell) {
+    let indexPath = tableView.indexPath(for: cell)
+    guard let detailPostVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPostVC") as? DetailPostViewController else { return }
+    detailPostVC.recentPostIndexPath = indexPath
+    detailPostVC.detailPost = postData
+    navigationController?.pushViewController(detailPostVC, animated: true)
+  }
+  
 }

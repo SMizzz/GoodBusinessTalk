@@ -13,6 +13,14 @@
 		021B989026C4E9EB00E32ACA /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B988F26C4E9EB00E32ACA /* PostData.swift */; };
 		021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B989526C586E700E32ACA /* PostTableViewCell.swift */; };
 		021B989826C586E700E32ACA /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021B989626C586E700E32ACA /* PostTableViewCell.xib */; };
+		021F5C8826D2BD89000F708C /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F5C8726D2BD89000F708C /* DetailPostViewController.swift */; };
+		021F5C8C26D2C370000F708C /* DetailPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F5C8A26D2C370000F708C /* DetailPostTableViewCell.swift */; };
+		021F5C8D26D2C370000F708C /* DetailPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021F5C8B26D2C370000F708C /* DetailPostTableViewCell.xib */; };
+		021F5C9226D32EE1000F708C /* DetailPostTextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F5C9026D32EE1000F708C /* DetailPostTextViewTableViewCell.swift */; };
+		021F5C9326D32EE1000F708C /* DetailPostTextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021F5C9126D32EE1000F708C /* DetailPostTextViewTableViewCell.xib */; };
+		021F5C9626D33750000F708C /* DetailPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F5C9426D33750000F708C /* DetailPostCommentTableViewCell.swift */; };
+		021F5C9726D33750000F708C /* DetailPostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021F5C9526D33750000F708C /* DetailPostCommentTableViewCell.xib */; };
+		021F5C9B26D33965000F708C /* CommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F5C9A26D33965000F708C /* CommentData.swift */; };
 		023AFA8126C9F2A200D3C064 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */; };
 		023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C174C26CBEEDC00DFE754 /* RecentViewController.swift */; };
 		023C174F26CBEEE400DFE754 /* BestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C174E26CBEEE400DFE754 /* BestViewController.swift */; };
@@ -42,6 +50,14 @@
 		021B988F26C4E9EB00E32ACA /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		021B989526C586E700E32ACA /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		021B989626C586E700E32ACA /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		021F5C8726D2BD89000F708C /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
+		021F5C8A26D2C370000F708C /* DetailPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTableViewCell.swift; sourceTree = "<group>"; };
+		021F5C8B26D2C370000F708C /* DetailPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPostTableViewCell.xib; sourceTree = "<group>"; };
+		021F5C9026D32EE1000F708C /* DetailPostTextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostTextViewTableViewCell.swift; sourceTree = "<group>"; };
+		021F5C9126D32EE1000F708C /* DetailPostTextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPostTextViewTableViewCell.xib; sourceTree = "<group>"; };
+		021F5C9426D33750000F708C /* DetailPostCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		021F5C9526D33750000F708C /* DetailPostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPostCommentTableViewCell.xib; sourceTree = "<group>"; };
+		021F5C9A26D33965000F708C /* CommentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentData.swift; sourceTree = "<group>"; };
 		023AFA8026C9F2A200D3C064 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodBusinessTalk.entitlements; sourceTree = "<group>"; };
 		023C174C26CBEEDC00DFE754 /* RecentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +112,28 @@
 				021B988C26C4E55B00E32ACA /* Spoqa Han Sans Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		021F5C8626D2BD6D000F708C /* DetailPost */ = {
+			isa = PBXGroup;
+			children = (
+				021F5C9A26D33965000F708C /* CommentData.swift */,
+				021F5C8726D2BD89000F708C /* DetailPostViewController.swift */,
+			);
+			path = DetailPost;
+			sourceTree = "<group>";
+		};
+		021F5C8926D2C357000F708C /* DetailPost */ = {
+			isa = PBXGroup;
+			children = (
+				021F5C8A26D2C370000F708C /* DetailPostTableViewCell.swift */,
+				021F5C8B26D2C370000F708C /* DetailPostTableViewCell.xib */,
+				021F5C9026D32EE1000F708C /* DetailPostTextViewTableViewCell.swift */,
+				021F5C9126D32EE1000F708C /* DetailPostTextViewTableViewCell.xib */,
+				021F5C9426D33750000F708C /* DetailPostCommentTableViewCell.swift */,
+				021F5C9526D33750000F708C /* DetailPostCommentTableViewCell.xib */,
+			);
+			path = DetailPost;
 			sourceTree = "<group>";
 		};
 		023C174A26CBEEBE00DFE754 /* Recent */ = {
@@ -168,6 +206,7 @@
 				02F4A75C26CF3DA90066BEDC /* View */,
 				02E0299926C9719800EBB2BB /* Auth */,
 				028ECFB226C44CF200D74716 /* Main */,
+				021F5C8626D2BD6D000F708C /* DetailPost */,
 				021B988726C4BA6B00E32ACA /* Compose */,
 				023C175026CEAB5200DFE754 /* Notice */,
 				02F4A76426CF874C0066BEDC /* Setting */,
@@ -228,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				02F4A75E26CF3DC50066BEDC /* Main */,
+				021F5C8926D2C357000F708C /* DetailPost */,
 				02F4A75F26CF3DD30066BEDC /* Alarm */,
 				02F4A76726CFA5190066BEDC /* Setting */,
 			);
@@ -352,9 +392,12 @@
 				028ECFA826C44C3900D74716 /* Assets.xcassets in Resources */,
 				021B988E26C4E55B00E32ACA /* Spoqa Han Sans Regular.ttf in Resources */,
 				021B989826C586E700E32ACA /* PostTableViewCell.xib in Resources */,
+				021F5C9726D33750000F708C /* DetailPostCommentTableViewCell.xib in Resources */,
 				021B988D26C4E55B00E32ACA /* Spoqa Han Sans Bold.ttf in Resources */,
 				028ECFA626C44C3600D74716 /* Main.storyboard in Resources */,
+				021F5C8D26D2C370000F708C /* DetailPostTableViewCell.xib in Resources */,
 				023AFA8126C9F2A200D3C064 /* GoogleService-Info.plist in Resources */,
+				021F5C9326D32EE1000F708C /* DetailPostTextViewTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,16 +469,21 @@
 			files = (
 				023C175426CEABEE00DFE754 /* NoticeViewController.swift in Sources */,
 				023C174F26CBEEE400DFE754 /* BestViewController.swift in Sources */,
+				021F5C9626D33750000F708C /* DetailPostCommentTableViewCell.swift in Sources */,
 				02E0299D26C971DC00EBB2BB /* LoginViewController.swift in Sources */,
 				021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */,
 				023C175826CEAC7200DFE754 /* AppNoticeViewController.swift in Sources */,
 				02F4A76626CF9EF40066BEDC /* SettingViewController.swift in Sources */,
 				023C175626CEAC6A00DFE754 /* PostNoticeViewController.swift in Sources */,
 				02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */,
+				021F5C8C26D2C370000F708C /* DetailPostTableViewCell.swift in Sources */,
 				023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */,
+				021F5C8826D2BD89000F708C /* DetailPostViewController.swift in Sources */,
 				021B988926C4BAB900E32ACA /* ComposeViewController.swift in Sources */,
+				021F5C9226D32EE1000F708C /* DetailPostTextViewTableViewCell.swift in Sources */,
 				02F4A76C26CFC98A0066BEDC /* SettingProfileTableViewCell.swift in Sources */,
 				021B989026C4E9EB00E32ACA /* PostData.swift in Sources */,
+				021F5C9B26D33965000F708C /* CommentData.swift in Sources */,
 				028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */,
 				02F4A76226CF3DF60066BEDC /* AppNoticeTableViewCell.swift in Sources */,
 				028ECF9F26C44C3600D74716 /* AppDelegate.swift in Sources */,

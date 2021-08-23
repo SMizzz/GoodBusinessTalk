@@ -186,6 +186,45 @@
             </objects>
             <point key="canvasLocation" x="3148" y="94"/>
         </scene>
+        <!--Detail Post View Controller-->
+        <scene sceneID="B3z-NX-cHB">
+            <objects>
+                <viewController storyboardIdentifier="DetailPostVC" id="cCo-9W-AtK" customClass="DetailPostViewController" customModule="GoodBusinessTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7pW-l1-B4h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Muz-ld-Jos">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.98030656579999997" green="0.98044699430000004" blue="0.98027580979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KdU-ft-EFy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Muz-ld-Jos" firstAttribute="leading" secondItem="KdU-ft-EFy" secondAttribute="leading" id="E2o-Lv-3xM"/>
+                            <constraint firstItem="KdU-ft-EFy" firstAttribute="trailing" secondItem="Muz-ld-Jos" secondAttribute="trailing" id="UPO-uB-jQ5"/>
+                            <constraint firstItem="Muz-ld-Jos" firstAttribute="top" secondItem="KdU-ft-EFy" secondAttribute="top" id="apV-Sv-6HU"/>
+                            <constraint firstItem="KdU-ft-EFy" firstAttribute="bottom" secondItem="Muz-ld-Jos" secondAttribute="bottom" id="bzU-tw-PR0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="G9x-2R-5lX">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="QTz-SR-ceG">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnTap:" destination="cCo-9W-AtK" id="TAY-rU-4jc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="Muz-ld-Jos" id="CI1-yd-X7C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZY-eF-Oon" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4938" y="94"/>
+        </scene>
         <!--Setting-->
         <scene sceneID="XhV-6w-eqR">
             <objects>
@@ -196,9 +235,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-fI-bSB">
                                 <rect key="frame" x="30" y="108" width="354" height="734"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.78424435849999996" green="0.78435820339999995" blue="0.78421932459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingProfileTableViewCell" rowHeight="95" id="avc-mr-zPp" customClass="SettingProfileTableViewCell" customModule="GoodBusinessTalk" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingProfileTableViewCell" rowHeight="95" id="avc-mr-zPp" customClass="SettingProfileTableViewCell" customModule="GoodBusinessTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="354" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="avc-mr-zPp" id="yCE-hf-Kkr">
@@ -206,7 +246,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingDetailTableViewCell" textLabel="oLF-qi-5RI" detailTextLabel="GFl-gb-xBS" rowHeight="49" style="IBUITableViewCellStyleValue1" id="Mnm-gJ-6s1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingDetailTableViewCell" textLabel="oLF-qi-5RI" detailTextLabel="GFl-gb-xBS" rowHeight="49" style="IBUITableViewCellStyleValue1" id="Mnm-gJ-6s1">
                                         <rect key="frame" x="0.0" y="119.5" width="354" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mnm-gJ-6s1" id="M2L-t8-9bE">
@@ -245,6 +285,9 @@
                     <navigationItem key="navigationItem" title="Setting" id="FGP-8N-ZLd">
                         <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="WrR-7V-bu1">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtnTap:" destination="Bvq-Rd-6zD" id="VRh-Mc-lPh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -254,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwx-rK-FxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5128.985507246377" y="93.75"/>
+            <point key="canvasLocation" x="6049" y="94"/>
         </scene>
         <!--Recent View Controller-->
         <scene sceneID="GQ8-l5-mDy">

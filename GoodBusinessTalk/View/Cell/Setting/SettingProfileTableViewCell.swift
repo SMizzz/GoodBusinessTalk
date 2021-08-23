@@ -16,6 +16,7 @@ class SettingProfileTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.backgroundColor = .clear
     bgView.layer.cornerRadius = 25
     levelTitleLabel.layer.masksToBounds = true
     levelTitleLabel.layer.cornerRadius = 10
