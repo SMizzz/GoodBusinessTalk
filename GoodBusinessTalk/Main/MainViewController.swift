@@ -24,8 +24,8 @@ class MainViewController: TabmanViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    print(UserDefaults.standard.string(forKey: "token")!)
     navigationBarView()
-    
     configureTextField()
     configureComposeView()
     viewSetup()

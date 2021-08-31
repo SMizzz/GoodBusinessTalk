@@ -96,7 +96,11 @@ extension SettingViewController:
     _ tableView: UITableView,
     viewForFooterInSection section: Int
   ) -> UIView? {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+    let view = UIView(
+      frame: CGRect(
+        x: 0, y: 0,
+        width: tableView.frame.width,
+        height: 1))
     view.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
     return view
   }

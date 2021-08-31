@@ -10,6 +10,10 @@ import GoogleSignIn
 import AuthenticationServices
 
 class LoginViewController: UIViewController {
+  
+  @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
+  
   @IBOutlet weak var appleSignInButton: UIButton!
   @IBOutlet weak var googleSignInButton: GIDSignInButton!
   
@@ -49,6 +53,21 @@ class LoginViewController: UIViewController {
   
   @objc func appleSignInButtonPress() {
     
+  }
+  
+  @IBAction func signupBtnTap(_ sender: Any) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    let signupVC = mainSB.instantiateViewController(withIdentifier: "SignupVC")
+    navigationController?.pushViewController(signupVC, animated: true)
+  }
+  
+  @IBAction func loginBtnTap(_ sender: Any) {
+    AuthNetworkManager.login(source: .login(email: emailTextField.text!, password: passwordTextField.text!)) { (result) in
+      UserDefaults.standard.set(result, forKey: "token")
+      let wnd = UIApplication.shared.windows.filter{$0.isKeyWindow}.first
+      let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
+      wnd?.rootViewController = mainVC
+    }
   }
   
 }

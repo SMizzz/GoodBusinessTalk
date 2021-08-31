@@ -18,6 +18,7 @@ class DetailPostCommentTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    configureLabelView()
     configureBGView()
   }
   
@@ -31,6 +32,10 @@ class DetailPostCommentTableViewCell: UITableViewCell {
     commnetView.layer.shadowOffset = CGSize(width: 1, height: 1)
     commnetView.layer.shadowOpacity = 0.2
     commnetView.layer.shadowRadius = 15
+  }
+  
+  func configureLabelView() {
+    levelTitleLabel.layer.cornerRadius = 10
   }
   
 }

@@ -17,6 +17,9 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'GoogleSignIn'
 pod 'Tabman'
+pod 'Moya'
+pod 'Kingfisher'
+pod 'SwiftyJSON'
   # Pods for GoodBusinessTalk
 
 

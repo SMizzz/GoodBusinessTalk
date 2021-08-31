@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U9P-IP-UOC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kmR-Xw-HHO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -233,7 +233,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-fI-bSB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-fI-bSB">
                                 <rect key="frame" x="30" y="108" width="354" height="734"/>
                                 <color key="backgroundColor" red="0.78424435849999996" green="0.78435820339999995" blue="0.78421932459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -298,6 +298,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwx-rK-FxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6049" y="94"/>
+        </scene>
+        <!--My Post View Controller-->
+        <scene sceneID="4lx-9q-3xQ">
+            <objects>
+                <viewController storyboardIdentifier="MyPostVC" id="mhp-RU-MR1" customClass="MyPostViewController" customModule="GoodBusinessTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UAt-bv-ZA7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hsQ-vk-T80"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrn-G4-Kvg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6726" y="94"/>
         </scene>
         <!--Recent View Controller-->
         <scene sceneID="GQ8-l5-mDy">
@@ -408,6 +423,9 @@
                                 <state key="normal" title="로그인하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginBtnTap:" destination="kmR-Xw-HHO" eventType="touchUpInside" id="TMi-8O-SLB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6D-S4-bAu">
                                 <rect key="frame" x="183" y="706" width="30" height="30"/>
@@ -425,6 +443,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XD1-ea-oVV">
                                         <rect key="frame" x="211" y="0.0" width="63" height="30"/>
                                         <state key="normal" title="Sign up"/>
+                                        <connections>
+                                            <action selector="signupBtnTap:" destination="kmR-Xw-HHO" eventType="touchUpInside" id="5US-t4-RxP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -484,7 +505,9 @@
                     </view>
                     <connections>
                         <outlet property="appleSignInButton" destination="Quo-CU-bTl" id="9TD-Jv-6GF"/>
+                        <outlet property="emailTextField" destination="yzf-55-GxE" id="YdU-G2-YTp"/>
                         <outlet property="googleSignInButton" destination="MV9-OA-z4l" id="xxO-HZ-f2q"/>
+                        <outlet property="passwordTextField" destination="FHG-e5-owu" id="Ct4-5D-Ark"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4f-90-Vyr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -494,7 +517,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Ddf-ce-tzX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U9P-IP-UOC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" id="U9P-IP-UOC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="czO-7F-BTm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -532,7 +555,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKm-wZ-owX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igu-kK-4J5">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igu-kK-4J5">
                                                 <rect key="frame" x="20" y="13" width="374" height="24.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -550,7 +573,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psm-O5-jeA">
                                         <rect key="frame" x="0.0" y="68" width="414" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6c8-Ak-KU0">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6c8-Ak-KU0">
                                                 <rect key="frame" x="20" y="13" width="374" height="24.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -568,7 +591,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFX-Gb-Jdq">
                                         <rect key="frame" x="0.0" y="136" width="414" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="km7-oz-NpV">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="km7-oz-NpV">
                                                 <rect key="frame" x="20" y="15" width="374" height="24.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -597,6 +620,9 @@
                                 <state key="normal" title="회원가입하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signupBtnTap:" destination="sSb-6M-Ufr" eventType="touchUpInside" id="1ps-A8-OXf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nUZ-UK-BbR"/>
@@ -613,6 +639,11 @@
                             <constraint firstItem="2aH-Be-Ceo" firstAttribute="leading" secondItem="nUZ-UK-BbR" secondAttribute="leading" constant="20" id="yot-GN-3lG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="6c8-Ak-KU0" id="5v0-Fj-xwg"/>
+                        <outlet property="nameTextField" destination="igu-kK-4J5" id="zLQ-Ae-baX"/>
+                        <outlet property="passwordTextField" destination="km7-oz-NpV" id="w89-z0-b4P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsw-1K-aZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

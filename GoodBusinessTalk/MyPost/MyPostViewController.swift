@@ -1,13 +1,13 @@
 //
-//  SignupViewController.swift
+//  MyPostViewController.swift
 //  GoodBusinessTalk
 //
-//  Created by 신미지 on 2021/08/16.
+//  Created by 신미지 on 2021/08/30.
 //
 
 import UIKit
 
-class SignupViewController: UIViewController {
+class MyPostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

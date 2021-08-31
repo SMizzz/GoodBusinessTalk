@@ -14,7 +14,7 @@ class DetailPostViewController: UIViewController {
   var recentPostIndexPath: IndexPath!
   var bestPostIndexPath: IndexPath!
   
-  var detailPost = [Post]()
+//  var detailPost = [Post]()
   var commentData = [
     Comment(nickname: "누구지", level: "사원", date: "2021.08.23 11:04", comment: "헉 저는 1, 3, 4요,,, 저혼자 그런가보네용,,"),
     Comment(nickname: "만년김대리", level: "사원", date: "2021.08.23 11:04", comment: "2번...."),
@@ -78,9 +78,9 @@ extension DetailPostViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTableViewCell", for: indexPath) as! DetailPostTableViewCell
-      let postData = detailPost[recentPostIndexPath.row]
-      cell.nicknameLabel.text = postData.nickName
-      cell.feedDescriptionLabel.text = postData.feedDescriptionLabel
+//      let postData = detailPost[recentPostIndexPath.row]
+//      cell.nicknameLabel.text = postData.nickName
+//      cell.feedDescriptionLabel.text = postData.feedDescriptionLabel
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
