@@ -13,6 +13,7 @@ struct Post: Codable {
   var name: String?
   var text: String?
   var likes: [Likes]?
+  var comment: [Comment]?
   var createdAt: String?
   
   enum CodingKeys: String, CodingKey {
@@ -21,37 +22,19 @@ struct Post: Codable {
     case name
     case text
     case likes
+    case comment
     case createdAt
   }
   
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(String.self, forKey: .id)
-    user = try values.decode(String.self, forKey: .user)
-    name = try values.decode(String.self, forKey: .name)
-    text =  try values.decode(String.self, forKey: .text)
-    likes = try values.decode(Array.self, forKey: .likes)
-    createdAt = try values.decode(String.self, forKey: .createdAt)
+    user = try values.decodeIfPresent(String.self, forKey: .user)
+    name = try values.decodeIfPresent(String.self, forKey: .name)
+    text =  try values.decodeIfPresent(String.self, forKey: .text)
+    likes = try values.decodeIfPresent(Array.self, forKey: .likes)
+    comment = try values.decodeIfPresent(Array.self, forKey: .comment)
+    createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)
   }
-}
-
-struct Likes: Codable {
-  var user: String?
-  var id: String?
-  
-  enum CodingKeys: String, CodingKey {
-    case user
-    case id = "_id"
-  }
-  
-  init(from decoder: Decoder) throws {
-    let values = try decoder.container(keyedBy: CodingKeys.self)
-    user = try values.decode(String.self, forKey: .user)
-    id = try values.decode(String.self, forKey: .id)
-  }
-}
-
-struct PostDataStore: Codable {
-  var postData: [Post]
 }
 

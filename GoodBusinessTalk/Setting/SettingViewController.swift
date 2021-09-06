@@ -80,6 +80,20 @@ extension SettingViewController:
     return UITableViewCell()
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case 1:
+      if indexPath.row == 1 {
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        let logoutVC = mainSB.instantiateViewController(withIdentifier: "LogoutVC")
+        navigationController?.pushViewController(logoutVC, animated: true)
+      }
+    default:
+      print("rrr")
+    }
+   
+  }
+  
   func tableView(
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath

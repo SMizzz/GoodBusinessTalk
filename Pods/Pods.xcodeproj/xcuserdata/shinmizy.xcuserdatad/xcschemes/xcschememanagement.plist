@@ -144,26 +144,33 @@
 			<key>orderHint</key>
 			<integer>25</integer>
 		</dict>
-		<key>PromisesObjC.xcscheme</key>
+		<key>ProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>26</integer>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>PromisesObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
-		<key>Tabman.xcscheme</key>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>28</integer>
+		</dict>
+		<key>Tabman.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>29</integer>
 		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>

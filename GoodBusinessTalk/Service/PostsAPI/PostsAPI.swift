@@ -9,6 +9,8 @@ import Moya
 
 enum PostsAPI {
   case allPosts
+  case detailPost(id: String, token: String)
+  case postRegister(name: String, text: String, token: String)
 }
 
 extension PostsAPI: TargetType {
@@ -23,14 +25,18 @@ extension PostsAPI: TargetType {
     switch self {
     case .allPosts:
       return "/total"
+    case .detailPost(let id, _):
+      return "/\(id)"
+    case .postRegister(_, _, _):
+    return "/"
     }
   }
   
   var method: Moya.Method {
     switch self {
-    case .allPosts:
+    case .allPosts, .detailPost(_, _):
       return .get
-    default:
+    case .postRegister(_, _, _):
       return .post
     }
   }
@@ -40,10 +46,24 @@ extension PostsAPI: TargetType {
   }
   
   var task: Task {
-    return .requestPlain
+    switch self {
+    case .allPosts:
+      return .requestPlain
+    case .detailPost(let id, _):
+      return .requestParameters(parameters: ["id": id], encoding: URLEncoding.queryString)
+    case .postRegister(let name, let text, _):
+      return .requestParameters(
+        parameters: ["name": name, "text": text],
+        encoding: JSONEncoding.default)
+    }
   }
   
   var headers: [String : String]? {
-    return ["Content-Type": "application/json"]
+    switch self {
+    case .allPosts:
+      return ["Content-Type": "application/json"]
+    case .detailPost(_, let token), .postRegister(_, _, let token):
+      return ["Authorization": "Bearer \(token)"]
+    }
   }
 }

@@ -138,7 +138,7 @@ extension BestViewController: BestCellDelegate {
   func commentButtonTapped(cell: PostTableViewCell) {
     let indexPath = tableView.indexPath(for: cell)
     guard let detailPostVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPostVC") as? DetailPostViewController else { return }
-    detailPostVC.recentPostIndexPath = indexPath
+//    detailPostVC.recentPostIndexPath = indexPath
 //    detailPostVC.detailPost = postData
     navigationController?.pushViewController(detailPostVC, animated: true)
   }

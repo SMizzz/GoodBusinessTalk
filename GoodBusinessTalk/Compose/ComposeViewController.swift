@@ -14,6 +14,7 @@ class ComposeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavigationBarItem()
+    configureFeedTextView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -41,8 +42,25 @@ class ComposeViewController: UIViewController {
     self.navigationItem.rightBarButtonItem = barButton
   }
   
+  private func configureFeedTextView() {
+    feedTextView.autocorrectionType = .no
+  }
+  
   @objc func handleUploadButton() {
-    print("upload button tapped!")
+    guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+    PostsNetworkManager.postRegister(
+      source: .postRegister(name: "미지", text: feedTextView.text!, token: token)) { (result) in
+      if result == true {
+        let alertVC = UIAlertController(title: "등록 완료", message: "등록되었습니다.", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "OK", style: .default) { (_) in
+          if let navi = self.navigationController {
+            navi.popViewController(animated: true)
+          }
+        }
+        alertVC.addAction(okBtn)
+        self.present(alertVC, animated: true, completion: nil)
+      }
+    }
   }
   
   @IBAction func backBtnTap(_ sender: Any) {

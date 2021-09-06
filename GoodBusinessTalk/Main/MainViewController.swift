@@ -81,10 +81,17 @@ class MainViewController: TabmanViewController {
     let noticeVC = mainSB.instantiateViewController(withIdentifier: "NoticeVC")
     navigationController?.pushViewController(noticeVC, animated: true)
   }
+  
   @IBAction func settingBtnTap(_ sender: Any) {
     let mainSB = UIStoryboard(name: "Main", bundle: nil)
     let settingVC = mainSB.instantiateViewController(withIdentifier: "SettingVC")
     navigationController?.pushViewController(settingVC, animated: true)
+  }
+  
+  @IBAction func composeBtnTap(_ sender: Any) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    let composeVC = mainSB.instantiateViewController(withIdentifier: "ComposeVC")
+    navigationController?.pushViewController(composeVC, animated: true)
   }
   
 }

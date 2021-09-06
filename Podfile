@@ -20,6 +20,7 @@ pod 'Tabman'
 pod 'Moya'
 pod 'Kingfisher'
 pod 'SwiftyJSON'
+pod 'ProgressHUD'
   # Pods for GoodBusinessTalk
 
 

@@ -366,6 +366,7 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - Pageboy (3.6.2)
+  - ProgressHUD (13.6)
   - PromisesObjC (1.2.12)
   - SwiftyJSON (5.0.1)
   - Tabman (2.11.1):
@@ -378,6 +379,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - Kingfisher
   - Moya
+  - ProgressHUD
   - SwiftyJSON
   - Tabman
 
@@ -407,6 +409,7 @@ SPEC REPOS:
     - Moya
     - nanopb
     - Pageboy
+    - ProgressHUD
     - PromisesObjC
     - SwiftyJSON
     - Tabman
@@ -436,10 +439,11 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
+  ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
 
-PODFILE CHECKSUM: 8b3739cca907d60f9bda3d3ebcd8573b01088d96
+PODFILE CHECKSUM: f9445b6123ca8e830faca06149981e6fcbf539b8
 
 COCOAPODS: 1.10.0

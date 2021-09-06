@@ -12,12 +12,15 @@ class RecentViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var expandedIndexSet: IndexSet = []
-  
   var posts = [Post]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configureTableView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
     getData()
   }
   
@@ -35,6 +38,7 @@ class RecentViewController: UIViewController {
     PostsNetworkManager.getAllPosts(source: .allPosts) { (postsData) in
       self.posts = postsData
       self.tableView.reloadData()
+      
     }
   }
   
@@ -77,6 +81,9 @@ extension RecentViewController:
       cell.recentDelegate = self
       cell.nicknameLabel.text = postData.name!
       cell.levelLabel.text = "사원"
+      
+      let getDate = postData.createdAt!.Date()
+      
       cell.dateLabel.text = postData.createdAt!
       cell.feedDescriptionLabel.text = postData.text!
 
@@ -151,7 +158,9 @@ extension RecentViewController: RecentCellDelegate {
   func commentButtonTapped(cell: PostTableViewCell) {
     let indexPath = tableView.indexPath(for: cell)
     guard let detailPostVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPostVC") as? DetailPostViewController else { return }
-    detailPostVC.recentPostIndexPath = indexPath
+    detailPostVC.id = posts[indexPath!.row].id!
+    
+//    detailPostVC.recentPostIndexPath = posts[indexPath!.row].id
 //    detailPostVC.detailPost = postData
     navigationController?.pushViewController(detailPostVC, animated: true)
   }

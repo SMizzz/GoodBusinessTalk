@@ -11,20 +11,19 @@ class DetailPostViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var recentPostIndexPath: IndexPath!
-  var bestPostIndexPath: IndexPath!
+  //  var recentPostIndexPath: IndexPath!
+  //  var bestPostIndexPath: IndexPath!
   
-//  var detailPost = [Post]()
-  var commentData = [
-    Comment(nickname: "누구지", level: "사원", date: "2021.08.23 11:04", comment: "헉 저는 1, 3, 4요,,, 저혼자 그런가보네용,,"),
-    Comment(nickname: "만년김대리", level: "사원", date: "2021.08.23 11:04", comment: "2번...."),
-    Comment(nickname: "오웬", level: "대리", date: "2021.08.23 11:04", comment: "1,,, ㅋㅋㅋㅋㅋ,,\n다들돈줘서하는거아닌가여...\n의미 부여하지마세요ㅠㅠ")
-  ]
+  //  var detailPost = [Post]()
+  
+  var id: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationBar.barTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
     configureTableView()
+    getData()
+    print("id is \(id)")
   }
   
   private func configureTableView() {
@@ -41,6 +40,13 @@ class DetailPostViewController: UIViewController {
     tableView.register(
       UINib(nibName: "DetailPostCommentTableViewCell", bundle: nil),
       forCellReuseIdentifier: "DetailPostCommentTableViewCell")
+  }
+  
+  private func getData() {
+    let token = UserDefaults.standard.string(forKey: "token")
+    PostsNetworkManager.getDetailPost(id: id, token: token!) { (post) in
+      print(post)
+    }
   }
   
   @IBAction func backBtnTap(_ sender: Any) {
@@ -67,7 +73,7 @@ extension DetailPostViewController:
     } else if section == 1 {
       return 1
     } else if section == 2 {
-      return commentData.count
+      return 10
     }
     return 1
   }
@@ -78,9 +84,9 @@ extension DetailPostViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTableViewCell", for: indexPath) as! DetailPostTableViewCell
-//      let postData = detailPost[recentPostIndexPath.row]
-//      cell.nicknameLabel.text = postData.nickName
-//      cell.feedDescriptionLabel.text = postData.feedDescriptionLabel
+      //      let postData = detailPost[recentPostIndexPath.row]
+      //      cell.nicknameLabel.text = postData.nickName
+      //      cell.feedDescriptionLabel.text = postData.feedDescriptionLabel
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
@@ -88,16 +94,16 @@ extension DetailPostViewController:
       return cell
     } else if indexPath.section == 2 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCommentTableViewCell", for: indexPath) as! DetailPostCommentTableViewCell
-      let comment = commentData[indexPath.row]
-      cell.nicknameLabel.text = comment.nickname
-      cell.levelTitleLabel.text = comment.level
-      cell.dateLabel.text = comment.date
-      cell.commentContentLabel.text = comment.comment
+      //      let comment = commentData[indexPath.row]
+      //      cell.nicknameLabel.text = comment.nickname
+      //      cell.levelTitleLabel.text = comment.level
+      //      cell.dateLabel.text = comment.date
+      //      cell.commentContentLabel.text = comment.comment
       return cell
     }
     
     return UITableViewCell()
-   
+    
   }
   
   func tableView(
@@ -115,7 +121,7 @@ extension DetailPostViewController:
       label.textColor = .darkGray
       label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       label.font = UIFont(name: "SpoqaHans-Regular", size: 10)
-      label.text = "댓글 \(commentData.count)개"
+      //      label.text = "댓글 \(commentData.count)개"
       view.addSubview(label)
       return view
     }
@@ -130,7 +136,7 @@ extension DetailPostViewController:
     }
     return 0
   }
- 
+  
 }
 
 extension DetailPostViewController: DetailPostTextViewDelegate {
