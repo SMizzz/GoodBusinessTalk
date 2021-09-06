@@ -22,7 +22,7 @@ extension PostsAPI: TargetType {
   var path: String {
     switch self {
     case .allPosts:
-      return "/"
+      return "/total"
     }
   }
   

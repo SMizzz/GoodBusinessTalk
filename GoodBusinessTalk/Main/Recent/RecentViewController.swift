@@ -17,8 +17,8 @@ class RecentViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    getData()
     configureTableView()
+    getData()
   }
   
   private func configureTableView() {
@@ -32,7 +32,10 @@ class RecentViewController: UIViewController {
   }
   
   private func getData() {
-    
+    PostsNetworkManager.getAllPosts(source: .allPosts) { (postsData) in
+      self.posts = postsData
+      self.tableView.reloadData()
+    }
   }
   
 }
@@ -52,10 +55,10 @@ extension RecentViewController:
   ) -> Int {
     if section == 0 {
       return 1
-    } else {
-      return 10
+    } else if section == 1 {
+      return posts.count
     }
-    return 1
+      return 1
   }
   
   func tableView(
@@ -64,34 +67,34 @@ extension RecentViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       guard let cell = tableView.dequeueReusableCell(withIdentifier: "blankCell")
-      else { return UITableViewCell()}
+      else { return UITableViewCell() }
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(
         withIdentifier: "PostTableViewCell",
         for: indexPath) as! PostTableViewCell
-//      let posts = postData[indexPath.row]
+      let postData = posts[indexPath.row]
       cell.recentDelegate = self
-//      cell.nicknameLabel.text = posts.nickName
-//      cell.levelLabel.text = posts.levelTitle
-//      cell.dateLabel.text = posts.date
-//      cell.feedDescriptionLabel.text = posts.feedDescriptionLabel
-//      print(posts.feedDescriptionLabel.count)
-//      
-//      if posts.feedDescriptionLabel.count > 100 {
-//        cell.moreButton.isHidden = false
-//        if expandedIndexSet.contains(indexPath.row) {
-//          cell.feedDescriptionLabel.numberOfLines = 0
-//          cell.moreButton.isHidden = true
-//        } else {
-//          cell.moreButton.isHidden = false
-//          cell.moreButton.setTitle("..더보기", for: .normal)
-//        }
-//      } else {
-//        cell.feedDescriptionLabel.numberOfLines = 4
-//        cell.moreButton.isHidden = true
-//      }
+      cell.nicknameLabel.text = postData.name!
+      cell.levelLabel.text = "사원"
+      cell.dateLabel.text = postData.createdAt!
+      cell.feedDescriptionLabel.text = postData.text!
+
+      if postData.text!.count > 100 {
+        cell.moreButton.isHidden = false
+        if expandedIndexSet.contains(indexPath.row) {
+          cell.feedDescriptionLabel.numberOfLines = 0
+          cell.moreButton.isHidden = true
+        } else {
+          cell.moreButton.isHidden = false
+          cell.moreButton.setTitle("..더보기", for: .normal)
+        }
+      } else {
+        cell.feedDescriptionLabel.numberOfLines = 4
+        cell.moreButton.isHidden = true
+      }
       return cell
+      
     }
     return UITableViewCell()
   }

@@ -12,6 +12,7 @@ struct Post: Codable {
   var user: String?
   var name: String?
   var text: String?
+  var likes: [Likes]?
   var createdAt: String?
   
   enum CodingKeys: String, CodingKey {
@@ -19,6 +20,7 @@ struct Post: Codable {
     case user
     case name
     case text
+    case likes
     case createdAt
   }
   
@@ -28,10 +30,28 @@ struct Post: Codable {
     user = try values.decode(String.self, forKey: .user)
     name = try values.decode(String.self, forKey: .name)
     text =  try values.decode(String.self, forKey: .text)
+    likes = try values.decode(Array.self, forKey: .likes)
+    createdAt = try values.decode(String.self, forKey: .createdAt)
   }
 }
 
-struct postsData: Codable {
-  var posts: [Post]
+struct Likes: Codable {
+  var user: String?
+  var id: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case user
+    case id = "_id"
+  }
+  
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    user = try values.decode(String.self, forKey: .user)
+    id = try values.decode(String.self, forKey: .id)
+  }
+}
+
+struct PostDataStore: Codable {
+  var postData: [Post]
 }
 

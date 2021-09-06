@@ -40,13 +40,6 @@ class AuthNetworkManager {
         } else {
           completion("로그인 실패")
         }
-        
-        
-//        if res.statusCode == 200 {
-//          completion(true)
-//        } else {
-//          completion(false)
-//        }
       case .failure(let err):
         print(err.localizedDescription)
         return

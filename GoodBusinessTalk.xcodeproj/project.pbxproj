@@ -37,6 +37,7 @@
 		028ECFA826C44C3900D74716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA726C44C3900D74716 /* Assets.xcassets */; };
 		028ECFAB26C44C3900D74716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA926C44C3900D74716 /* LaunchScreen.storyboard */; };
 		028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECFB326C44D1200D74716 /* MainViewController.swift */; };
+		02B03E2626E3640D00DD3C98 /* PostsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */; };
 		02C247E626DCDE66003C2100 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C247E526DCDE66003C2100 /* MyPostViewController.swift */; };
 		02C247EA26DCDEEF003C2100 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C247E826DCDEEF003C2100 /* MyPostTableViewCell.swift */; };
 		02C247EB26DCDEEF003C2100 /* MyPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C247E926DCDEEF003C2100 /* MyPostTableViewCell.xib */; };
@@ -84,6 +85,7 @@
 		028ECFAA26C44C3900D74716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028ECFAC26C44C3900D74716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028ECFB326C44D1200D74716 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNetworkManager.swift; sourceTree = "<group>"; };
 		02C247E526DCDE66003C2100 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		02C247E826DCDEEF003C2100 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		02C247E926DCDEEF003C2100 /* MyPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPostTableViewCell.xib; sourceTree = "<group>"; };
@@ -221,8 +223,9 @@
 		028791B226DCFB4600AA6DCF /* PostsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				028791B326DCFB5D00AA6DCF /* PostsAPI.swift */,
 				028791B526DCFCCA00AA6DCF /* Post.swift */,
+				028791B326DCFB5D00AA6DCF /* PostsAPI.swift */,
+				02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */,
 			);
 			path = PostsAPI;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				028791B626DCFCCA00AA6DCF /* Post.swift in Sources */,
 				021F5C9226D32EE1000F708C /* DetailPostTextViewTableViewCell.swift in Sources */,
 				02C247EA26DCDEEF003C2100 /* MyPostTableViewCell.swift in Sources */,
+				02B03E2626E3640D00DD3C98 /* PostsNetworkManager.swift in Sources */,
 				028791B426DCFB5D00AA6DCF /* PostsAPI.swift in Sources */,
 				02F4A76C26CFC98A0066BEDC /* SettingProfileTableViewCell.swift in Sources */,
 				02C247E626DCDE66003C2100 /* MyPostViewController.swift in Sources */,
