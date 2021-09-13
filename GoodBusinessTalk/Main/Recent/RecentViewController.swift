@@ -79,27 +79,30 @@ extension RecentViewController:
         for: indexPath) as! PostTableViewCell
       let postData = posts[indexPath.row]
       cell.recentDelegate = self
-      cell.nicknameLabel.text = postData.name!
-      cell.levelLabel.text = "사원"
+//      cell.nicknameLabel.text = postData.name
+//      cell.levelLabel.text = postData.user?.level
       
-      let getDate = postData.createdAt!.Date()
       
-      cell.dateLabel.text = postData.createdAt!
-      cell.feedDescriptionLabel.text = postData.text!
+//      let convertData = convertDateFormatter(date: postData.createdAt!)
+//      let convertData = String2DateType(string: postData.createdAt!)
+//      let dateString = ""
+//      cell.dateLabel.text = postData.createdAt
+      
+//      cell.feedDescriptionLabel.text = postData.text
 
-      if postData.text!.count > 100 {
-        cell.moreButton.isHidden = false
-        if expandedIndexSet.contains(indexPath.row) {
-          cell.feedDescriptionLabel.numberOfLines = 0
-          cell.moreButton.isHidden = true
-        } else {
-          cell.moreButton.isHidden = false
-          cell.moreButton.setTitle("..더보기", for: .normal)
-        }
-      } else {
-        cell.feedDescriptionLabel.numberOfLines = 4
-        cell.moreButton.isHidden = true
-      }
+//      if postData.text!.count > 100 {
+//        cell.moreButton.isHidden = false
+//        if expandedIndexSet.contains(indexPath.row) {
+//          cell.feedDescriptionLabel.numberOfLines = 0
+//          cell.moreButton.isHidden = true
+//        } else {
+//          cell.moreButton.isHidden = false
+//          cell.moreButton.setTitle("..더보기", for: .normal)
+//        }
+//      } else {
+//        cell.feedDescriptionLabel.numberOfLines = 4
+//        cell.moreButton.isHidden = true
+//      }
       return cell
       
     }

@@ -65,6 +65,7 @@ extension SettingViewController:
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingDetailTableViewCell", for: indexPath)
       let informData = settingInform[indexPath.row]
+      cell.layer.cornerRadius = 20
       cell.textLabel?.font = UIFont(name: "SpoqaHanSans-Bold", size: 13)
       cell.detailTextLabel?.font = UIFont(name: "SpoqaHanSans-Regular", size: 13)
       if indexPath.row == 0 {
@@ -81,10 +82,13 @@ extension SettingViewController:
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
     switch indexPath.section {
+    case 0:
+      let myPostVC = mainSB.instantiateViewController(withIdentifier: "MyPostVC")
+      navigationController?.pushViewController(myPostVC, animated: true)
     case 1:
       if indexPath.row == 1 {
-        let mainSB = UIStoryboard(name: "Main", bundle: nil)
         let logoutVC = mainSB.instantiateViewController(withIdentifier: "LogoutVC")
         navigationController?.pushViewController(logoutVC, animated: true)
       }

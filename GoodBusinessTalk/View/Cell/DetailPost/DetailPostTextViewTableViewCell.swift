@@ -11,6 +11,8 @@ protocol DetailPostTextViewDelegate: AnyObject {
   func updateTextViewHeight(
     _ cell: DetailPostTextViewTableViewCell,
     _ textView: UITextView)
+  
+  func textViewToDetailPostVC(_ text: String)
 }
 
 class DetailPostTextViewTableViewCell: UITableViewCell {
@@ -46,6 +48,10 @@ class DetailPostTextViewTableViewCell: UITableViewCell {
     commentTextView.delegate = self
     commentTextView.isScrollEnabled = false
     commentTextView.sizeToFit()
+  }
+  
+  @IBAction func sendBtnTap(_ sender: Any) {
+    delegate?.textViewToDetailPostVC(commentTextView.text)
   }
   
 }

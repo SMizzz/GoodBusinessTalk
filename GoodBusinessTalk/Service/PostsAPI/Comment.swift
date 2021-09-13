@@ -21,4 +21,13 @@ struct Comment: Codable {
     case id = "_id"
     case date
   }
+  
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    user = try values.decodeIfPresent(String.self, forKey: .user)
+    text = try values.decodeIfPresent(String.self, forKey: .text)
+    name = try values.decodeIfPresent(String.self, forKey: .name)
+    id = try values.decodeIfPresent(String.self, forKey: .id)
+    date = try values.decodeIfPresent(String.self, forKey: .date)
+  }
 }

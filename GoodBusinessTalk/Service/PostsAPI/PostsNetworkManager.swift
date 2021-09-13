@@ -58,17 +58,40 @@ class PostsNetworkManager {
   }
   
   static func getDetailPost(
-    id: String,
-    token: String,
-    completion: @escaping(Bool) -> ()
+    source: PostsAPI,
+    completion: @escaping(Post) -> ()
   ) {
-    provider.request(.detailPost(id: id, token: token)) { (result) in
+    provider.request(source) { (result) in
+      switch result {
+      case .success(let res):
+        print(res.statusCode)
+//        let jsonData = JSON(res.data)
+//        print("+++++", jsonData)
+//        completion(jsonData.dictionary as! Post)
+        do {
+          let detailPostData = try JSONDecoder().decode(Post.self, from: res.data)
+          print("+++++", detailPostData)
+        } catch let err {
+          print(err.localizedDescription)
+          return
+        }
+      case .failure(let err):
+        print(err)
+        return
+      }
+    }
+  }
+  
+  static func postComment(
+    source: PostsAPI,
+    completion: @escaping(Post) -> ()
+  ) {
+    provider.request(source) { (result) in
       switch result {
       case .success(let res):
         do {
-          let postData = try JSONDecoder().decode(Post.self, from: res.data)
-          print(postData)
-//          completion(postData)
+          let addComment = try JSONDecoder().decode(Post.self, from: res.data)
+          completion(addComment)
         } catch let err {
           print(err.localizedDescription)
           return
@@ -79,5 +102,6 @@ class PostsNetworkManager {
       }
     }
   }
+  
 }
 

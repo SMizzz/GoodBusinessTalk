@@ -28,6 +28,8 @@
 		023C175626CEAC6A00DFE754 /* PostNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C175526CEAC6A00DFE754 /* PostNoticeViewController.swift */; };
 		023C175826CEAC7200DFE754 /* AppNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C175726CEAC7200DFE754 /* AppNoticeViewController.swift */; };
 		024CF45D26E61D9900568EF4 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CF45C26E61D9900568EF4 /* LogoutViewController.swift */; };
+		024CF46026E6375A00568EF4 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CF45F26E6375A00568EF4 /* Dates.swift */; };
+		028314A626EF5E2700C89435 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028314A526EF5E2700C89435 /* User.swift */; };
 		028791AB26DCEDF700AA6DCF /* EmailAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028791AA26DCEDF700AA6DCF /* EmailAuth.swift */; };
 		028791AD26DCF10D00AA6DCF /* AuthNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028791AC26DCF10D00AA6DCF /* AuthNetworkManager.swift */; };
 		028791B126DCFA5F00AA6DCF /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028791B026DCFA5F00AA6DCF /* Resource.swift */; };
@@ -76,6 +78,8 @@
 		023C175526CEAC6A00DFE754 /* PostNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoticeViewController.swift; sourceTree = "<group>"; };
 		023C175726CEAC7200DFE754 /* AppNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNoticeViewController.swift; sourceTree = "<group>"; };
 		024CF45C26E61D9900568EF4 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		024CF45F26E6375A00568EF4 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		028314A526EF5E2700C89435 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		028791AA26DCEDF700AA6DCF /* EmailAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuth.swift; sourceTree = "<group>"; };
 		028791AC26DCF10D00AA6DCF /* AuthNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkManager.swift; sourceTree = "<group>"; };
 		028791B026DCFA5F00AA6DCF /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -197,6 +201,14 @@
 			path = PostNotice;
 			sourceTree = "<group>";
 		};
+		024CF45E26E6374B00568EF4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				024CF45F26E6375A00568EF4 /* Dates.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		028791A926DCEDDC00AA6DCF /* EmailAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				028791B526DCFCCA00AA6DCF /* Post.swift */,
+				028314A526EF5E2700C89435 /* User.swift */,
 				023984E026E6162800D99FBA /* Like.swift */,
 				023984DE26E6157700D99FBA /* Comment.swift */,
 				028791B326DCFB5D00AA6DCF /* PostsAPI.swift */,
@@ -256,6 +269,7 @@
 		028ECF9D26C44C3600D74716 /* GoodBusinessTalk */ = {
 			isa = PBXGroup;
 			children = (
+				024CF45E26E6374B00568EF4 /* Utilities */,
 				028791AE26DCF9CC00AA6DCF /* Service */,
 				028791AF26DCF9FE00AA6DCF /* Constraints */,
 				023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */,
@@ -550,6 +564,7 @@
 				023C174F26CBEEE400DFE754 /* BestViewController.swift in Sources */,
 				021F5C9626D33750000F708C /* DetailPostCommentTableViewCell.swift in Sources */,
 				02E0299D26C971DC00EBB2BB /* LoginViewController.swift in Sources */,
+				028314A626EF5E2700C89435 /* User.swift in Sources */,
 				021B989726C586E700E32ACA /* PostTableViewCell.swift in Sources */,
 				023C175826CEAC7200DFE754 /* AppNoticeViewController.swift in Sources */,
 				02F4A76626CF9EF40066BEDC /* SettingViewController.swift in Sources */,
@@ -557,6 +572,7 @@
 				023C175626CEAC6A00DFE754 /* PostNoticeViewController.swift in Sources */,
 				02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */,
 				021F5C8C26D2C370000F708C /* DetailPostTableViewCell.swift in Sources */,
+				024CF46026E6375A00568EF4 /* Dates.swift in Sources */,
 				023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */,
 				023984DF26E6157700D99FBA /* Comment.swift in Sources */,
 				021F5C8826D2BD89000F708C /* DetailPostViewController.swift in Sources */,

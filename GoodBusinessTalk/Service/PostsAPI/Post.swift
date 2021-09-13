@@ -8,13 +8,13 @@
 import Foundation
 
 struct Post: Codable {
-  var id: String?
-  var user: String?
-  var name: String?
-  var text: String?
-  var likes: [Likes]?
+  var id: String? = ""
+  var user: User?
+  var name: String? = ""
+  var text: String? = ""
+  var likes: [Like]?
   var comment: [Comment]?
-  var createdAt: String?
+  var createdAt: String? = ""
   
   enum CodingKeys: String, CodingKey {
     case id = "_id"
@@ -29,12 +29,12 @@ struct Post: Codable {
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     id = try values.decode(String.self, forKey: .id)
-    user = try values.decodeIfPresent(String.self, forKey: .user)
-    name = try values.decodeIfPresent(String.self, forKey: .name)
-    text =  try values.decodeIfPresent(String.self, forKey: .text)
-    likes = try values.decodeIfPresent(Array.self, forKey: .likes)
-    comment = try values.decodeIfPresent(Array.self, forKey: .comment)
-    createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)
+    user = try values.decode(User.self, forKey: .user)
+    name = try values.decode(String.self, forKey: .name)
+    text =  try values.decode(String.self, forKey: .text)
+    likes = try values.decode([Like].self, forKey: .likes)
+    comment = try values.decode([Comment].self, forKey: .comment)
+    createdAt = try values.decode(String.self, forKey: .createdAt)
   }
 }
 

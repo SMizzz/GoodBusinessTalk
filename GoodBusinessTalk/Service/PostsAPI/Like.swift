@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Likes: Codable {
+struct Like: Codable {
   var user: String?
   var id: String?
   
