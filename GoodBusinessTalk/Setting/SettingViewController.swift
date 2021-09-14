@@ -66,8 +66,8 @@ extension SettingViewController:
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingDetailTableViewCell", for: indexPath)
       let informData = settingInform[indexPath.row]
       cell.layer.cornerRadius = 20
-      cell.textLabel?.font = UIFont(name: "SpoqaHanSans-Bold", size: 13)
-      cell.detailTextLabel?.font = UIFont(name: "SpoqaHanSans-Regular", size: 13)
+      cell.textLabel?.font = UIFont(name: "SpoqaHanSans-Bold", size: 17)
+      cell.detailTextLabel?.font = UIFont(name: "SpoqaHanSans-Regular", size: 15)
       if indexPath.row == 0 {
         cell.textLabel?.text = informData
         cell.detailTextLabel?.text = "최신버전입니다."

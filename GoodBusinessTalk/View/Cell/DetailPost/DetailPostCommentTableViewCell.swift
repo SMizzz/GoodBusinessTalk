@@ -32,6 +32,9 @@ class DetailPostCommentTableViewCell: UITableViewCell {
     commnetView.layer.shadowOffset = CGSize(width: 1, height: 1)
     commnetView.layer.shadowOpacity = 0.2
     commnetView.layer.shadowRadius = 15
+    
+    levelTitleLabel.layer.masksToBounds = true
+    levelTitleLabel.layer.cornerRadius = 10
   }
   
   func configureLabelView() {

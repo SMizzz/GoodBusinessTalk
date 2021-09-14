@@ -64,13 +64,9 @@ class PostsNetworkManager {
     provider.request(source) { (result) in
       switch result {
       case .success(let res):
-        print(res.statusCode)
-//        let jsonData = JSON(res.data)
-//        print("+++++", jsonData)
-//        completion(jsonData.dictionary as! Post)
         do {
           let detailPostData = try JSONDecoder().decode(Post.self, from: res.data)
-          print("+++++", detailPostData)
+          completion(detailPostData)
         } catch let err {
           print(err.localizedDescription)
           return

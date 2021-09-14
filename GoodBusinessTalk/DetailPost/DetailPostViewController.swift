@@ -13,6 +13,7 @@ class DetailPostViewController: UIViewController {
   
   var id: String = ""
   var postData: Post?
+  var commentData: Post?
   private let token = UserDefaults.standard.string(forKey: "token")
   
   override func viewDidLoad() {
@@ -20,7 +21,6 @@ class DetailPostViewController: UIViewController {
     navigationController?.navigationBar.barTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
     configureTableView()
     getData()
-    print(id)
   }
   
   private func configureTableView() {
@@ -40,12 +40,9 @@ class DetailPostViewController: UIViewController {
   }
   
   private func getData() {
-    
     PostsNetworkManager.getDetailPost(source: .detailPost(id: id, token: token!)) { (post) in
       self.postData = post
-      OperationQueue.main.addOperation {
-        self.tableView.reloadData()
-      }
+      self.tableView.reloadData()
     }
     
   }
@@ -74,8 +71,7 @@ extension DetailPostViewController:
     } else if section == 1 {
       return 1
     } else if section == 2 {
-      return 10
-//      return postData?.comment!.count ?? 0
+      return postData?.comment!.count ?? 0
     }
     return 1
   }
@@ -86,30 +82,24 @@ extension DetailPostViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTableViewCell", for: indexPath) as! DetailPostTableViewCell
-//      cell.nicknameLabel.text = postData?.name
-//      cell.levelTitleLabel.text = postData?.user?.level
-//      cell.dateLabel.text = postData?.createdAt
-//      cell.feedDescriptionLabel.text = postData?.text
+      cell.nicknameLabel.text = postData?.name
+      cell.levelTitleLabel.text = postData?.user?.level
+      cell.dateLabel.text = postData?.createdAt
+      cell.feedDescriptionLabel.text = postData?.text
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
       cell.delegate = self
-      
       return cell
     }
-      let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCommentTableViewCell", for: indexPath) as! DetailPostCommentTableViewCell
-      
-//      let comment = postData?.comment![indexPath.row]
-//      cell.nicknameLabel.text = comment?.name
-//      cell.dateLabel.text = comment?.date
-//      cell.commentContentLabel.text = comment?.text
-      
-     
-      return cell
-    
-    
+    let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCommentTableViewCell", for: indexPath) as! DetailPostCommentTableViewCell
+    let comment = postData?.comment![indexPath.row]
+    cell.nicknameLabel.text = comment?.name
+    cell.levelTitleLabel.text = "인턴"
+    cell.dateLabel.text = comment?.date
+    cell.commentContentLabel.text = comment?.text
+    return cell
   }
-  
   
   func tableView(
     _ tableView: UITableView,
@@ -120,34 +110,20 @@ extension DetailPostViewController:
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     if section == 2 {
-//
-//      if postData?.comment?.count == 0 {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: tableView.frame.size.height))
-//        view.backgroundColor = .white
-//        let label = UILabel(frame: CGRect(x: 5, y: 5, width: view.bounds.size.width, height: view.bounds.size.height))
-//        label.text = "등록된 댓글이 없습니다."
-//        label.textColor = .black
-//        view.addSubview(label)
-//        return view
-//      }
-//
       let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
       view.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
       let label = UILabel(frame: CGRect(x: 22, y: 4, width: view.bounds.size.width, height: view.bounds.size.height))
       label.textColor = .darkGray
       label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-      label.font = UIFont(name: "SpoqaHans-Regular", size: 10)
-//      if let commentCount = postData?.comment!.count {
-//        label.text = "댓글 \(commentCount)개"
-//      } else {
-//        label.text = "등록된 댓글이 없습니다."
-//      }
+      label.font = UIFont(name: "SpoqaHans-Regular", size: 8)
+      if let commentCount = postData?.comment!.count {
+        label.text = "댓글 \(commentCount)개"
+      }
       
       view.addSubview(label)
       
       return view
     }
-    
     let view = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
     return view
   }
@@ -178,9 +154,17 @@ extension DetailPostViewController: DetailPostTextViewDelegate {
   
   
   func textViewToDetailPostVC(_ text: String) {
-//    PostsNetworkManager.postComment(source: .addComment(id: id, name: "noze", text: text, token: token!)) { (post) in
-//      print(post)
-//    }
+    PostsNetworkManager.postComment(
+      source: .addComment(
+        id: id,
+        name: "noze",
+        text: text,
+        token: token!)
+    ) { (post) in
+      OperationQueue.main.addOperation {
+        self.tableView.reloadData()
+      }
+    }
   }
   
 }

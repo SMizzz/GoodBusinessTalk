@@ -25,6 +25,9 @@ class DetailPostTableViewCell: UITableViewCell {
     detailPostView.layer.shadowOffset = CGSize(width: 1, height: 1)
     detailPostView.layer.shadowOpacity = 0.1
     detailPostView.layer.shadowRadius = 15
+    
+    levelTitleLabel.layer.masksToBounds = true
+    levelTitleLabel.layer.cornerRadius = 10
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
