@@ -12,7 +12,9 @@ class RecentViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var expandedIndexSet: IndexSet = []
-  var posts = [Post]()
+//  var posts = [Post]()
+  
+  var viewModel = MainPostViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,9 +38,8 @@ class RecentViewController: UIViewController {
   
   private func getData() {
     PostsNetworkManager.getAllPosts(source: .allPosts) { (postsData) in
-      self.posts = postsData
+      self.viewModel.postData = postsData
       self.tableView.reloadData()
-      
     }
   }
   
@@ -60,7 +61,7 @@ extension RecentViewController:
     if section == 0 {
       return 1
     } else if section == 1 {
-      return posts.count
+      return viewModel.numberOfSections
     }
       return 1
   }
@@ -77,18 +78,10 @@ extension RecentViewController:
       let cell = tableView.dequeueReusableCell(
         withIdentifier: "PostTableViewCell",
         for: indexPath) as! PostTableViewCell
-      let postData = posts[indexPath.row]
+      let postData = viewModel.posts(at: indexPath.row)
+      cell.update(postData: postData)
       cell.recentDelegate = self
-      cell.nicknameLabel.text = postData.name
-      cell.levelLabel.text = postData.user?.level
       
-      
-//      let convertData = convertDateFormatter(date: postData.createdAt!)
-//      let convertData = String2DateType(string: postData.createdAt!)
-//      let dateString = ""
-      cell.dateLabel.text = postData.createdAt
-
-      cell.feedDescriptionLabel.text = postData.text
       if postData.text!.count > 100 {
         cell.moreButton.isHidden = false
         if expandedIndexSet.contains(indexPath.row) {
@@ -102,6 +95,7 @@ extension RecentViewController:
         cell.feedDescriptionLabel.numberOfLines = 4
         cell.moreButton.isHidden = true
       }
+  
       return cell
       
     }
@@ -160,10 +154,7 @@ extension RecentViewController: RecentCellDelegate {
   func commentButtonTapped(cell: PostTableViewCell) {
     let indexPath = tableView.indexPath(for: cell)
     guard let detailPostVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailPostVC") as? DetailPostViewController else { return }
-    detailPostVC.id = posts[indexPath!.row].id!
-    
-//    detailPostVC.recentPostIndexPath = posts[indexPath!.row].id
-//    detailPostVC.detailPost = postData
+    detailPostVC.id = viewModel.postData[indexPath!.row].id!
     navigationController?.pushViewController(detailPostVC, animated: true)
   }
   

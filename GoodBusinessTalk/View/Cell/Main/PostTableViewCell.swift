@@ -52,6 +52,21 @@ class PostTableViewCell: UITableViewCell {
     
   }
   
+  func update(postData: Post) {
+    nicknameLabel.text = postData.name
+    levelLabel.text = postData.user?.level
+    dateLabel.text = postData.createdAt
+
+    feedDescriptionLabel.text = postData.text
+    if let likeData = postData.likes {
+      likeButton.setTitle(" 좋아요 \(likeData.count)", for: .normal)
+    }
+    
+    if let commentData = postData.comment {
+      commentButton.setTitle(" 댓글 \(commentData.count)", for: .normal)
+    }
+  }
+  
   @IBAction func moreBtnTapped(_ sender: Any) {
     recentDelegate?.moreButtonTapped(cell: self)
     bestDelegate?.moreButtonTapped(cell: self)
@@ -61,4 +76,6 @@ class PostTableViewCell: UITableViewCell {
     recentDelegate?.commentButtonTapped(cell: self)
     bestDelegate?.commentButtonTapped(cell: self)
   }
+  
+  
 }

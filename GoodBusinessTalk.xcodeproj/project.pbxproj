@@ -28,7 +28,6 @@
 		023C175626CEAC6A00DFE754 /* PostNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C175526CEAC6A00DFE754 /* PostNoticeViewController.swift */; };
 		023C175826CEAC7200DFE754 /* AppNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C175726CEAC7200DFE754 /* AppNoticeViewController.swift */; };
 		024CF45D26E61D9900568EF4 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CF45C26E61D9900568EF4 /* LogoutViewController.swift */; };
-		024CF46026E6375A00568EF4 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CF45F26E6375A00568EF4 /* Dates.swift */; };
 		028314A626EF5E2700C89435 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028314A526EF5E2700C89435 /* User.swift */; };
 		028791AB26DCEDF700AA6DCF /* EmailAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028791AA26DCEDF700AA6DCF /* EmailAuth.swift */; };
 		028791AD26DCF10D00AA6DCF /* AuthNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028791AC26DCF10D00AA6DCF /* AuthNetworkManager.swift */; };
@@ -41,6 +40,7 @@
 		028ECFA826C44C3900D74716 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA726C44C3900D74716 /* Assets.xcassets */; };
 		028ECFAB26C44C3900D74716 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028ECFA926C44C3900D74716 /* LaunchScreen.storyboard */; };
 		028ECFB426C44D1200D74716 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028ECFB326C44D1200D74716 /* MainViewController.swift */; };
+		02A912DC2701B14900659370 /* MainPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A912DB2701B14900659370 /* MainPostViewModel.swift */; };
 		02B03E2626E3640D00DD3C98 /* PostsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */; };
 		02C247E626DCDE66003C2100 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C247E526DCDE66003C2100 /* MyPostViewController.swift */; };
 		02C247EA26DCDEEF003C2100 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C247E826DCDEEF003C2100 /* MyPostTableViewCell.swift */; };
@@ -78,7 +78,6 @@
 		023C175526CEAC6A00DFE754 /* PostNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNoticeViewController.swift; sourceTree = "<group>"; };
 		023C175726CEAC7200DFE754 /* AppNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNoticeViewController.swift; sourceTree = "<group>"; };
 		024CF45C26E61D9900568EF4 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
-		024CF45F26E6375A00568EF4 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		028314A526EF5E2700C89435 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		028791AA26DCEDF700AA6DCF /* EmailAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuth.swift; sourceTree = "<group>"; };
 		028791AC26DCF10D00AA6DCF /* AuthNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkManager.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		028ECFAA26C44C3900D74716 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		028ECFAC26C44C3900D74716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028ECFB326C44D1200D74716 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02A912DB2701B14900659370 /* MainPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostViewModel.swift; sourceTree = "<group>"; };
 		02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNetworkManager.swift; sourceTree = "<group>"; };
 		02C247E526DCDE66003C2100 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		02C247E826DCDEEF003C2100 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,14 +201,6 @@
 			path = PostNotice;
 			sourceTree = "<group>";
 		};
-		024CF45E26E6374B00568EF4 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				024CF45F26E6375A00568EF4 /* Dates.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		028791A926DCEDDC00AA6DCF /* EmailAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,10 +230,6 @@
 		028791B226DCFB4600AA6DCF /* PostsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				028791B526DCFCCA00AA6DCF /* Post.swift */,
-				028314A526EF5E2700C89435 /* User.swift */,
-				023984E026E6162800D99FBA /* Like.swift */,
-				023984DE26E6157700D99FBA /* Comment.swift */,
 				028791B326DCFB5D00AA6DCF /* PostsAPI.swift */,
 				02B03E2526E3640D00DD3C98 /* PostsNetworkManager.swift */,
 			);
@@ -269,17 +257,17 @@
 		028ECF9D26C44C3600D74716 /* GoodBusinessTalk */ = {
 			isa = PBXGroup;
 			children = (
-				024CF45E26E6374B00568EF4 /* Utilities */,
-				028791AE26DCF9CC00AA6DCF /* Service */,
-				028791AF26DCF9FE00AA6DCF /* Constraints */,
 				023AFA8226C9FD7B00D3C064 /* GoodBusinessTalk.entitlements */,
 				028ECF9E26C44C3600D74716 /* AppDelegate.swift */,
 				028ECFA026C44C3600D74716 /* SceneDelegate.swift */,
+				028791AE26DCF9CC00AA6DCF /* Service */,
+				028791AF26DCF9FE00AA6DCF /* Constraints */,
 				021B988A26C4E54F00E32ACA /* Font */,
+				02A912D82701A09800659370 /* Model */,
 				02F4A75C26CF3DA90066BEDC /* View */,
+				02A912D92701A09E00659370 /* ViewModel */,
 				02E0299926C9719800EBB2BB /* Auth */,
 				02E0299A26C971A000EBB2BB /* Signup */,
-				028ECFB226C44CF200D74716 /* Main */,
 				021F5C8626D2BD6D000F708C /* DetailPost */,
 				021B988726C4BA6B00E32ACA /* Compose */,
 				023C175026CEAB5200DFE754 /* Notice */,
@@ -302,6 +290,33 @@
 				023C174B26CBEEC300DFE754 /* Best */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		02A912D82701A09800659370 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				028791B526DCFCCA00AA6DCF /* Post.swift */,
+				028314A526EF5E2700C89435 /* User.swift */,
+				023984E026E6162800D99FBA /* Like.swift */,
+				023984DE26E6157700D99FBA /* Comment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02A912D92701A09E00659370 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				02A912DB2701B14900659370 /* MainPostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		02A912DA2701A15900659370 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				028ECFB226C44CF200D74716 /* Main */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		02C247E426DCDE31003C2100 /* MyPost */ = {
@@ -349,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				02F4A75D26CF3DAD0066BEDC /* Cell */,
+				02A912DA2701A15900659370 /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,10 +585,10 @@
 				023C175826CEAC7200DFE754 /* AppNoticeViewController.swift in Sources */,
 				02F4A76626CF9EF40066BEDC /* SettingViewController.swift in Sources */,
 				023984E126E6162800D99FBA /* Like.swift in Sources */,
+				02A912DC2701B14900659370 /* MainPostViewModel.swift in Sources */,
 				023C175626CEAC6A00DFE754 /* PostNoticeViewController.swift in Sources */,
 				02E0299F26C971E300EBB2BB /* SignupViewController.swift in Sources */,
 				021F5C8C26D2C370000F708C /* DetailPostTableViewCell.swift in Sources */,
-				024CF46026E6375A00568EF4 /* Dates.swift in Sources */,
 				023C174D26CBEEDC00DFE754 /* RecentViewController.swift in Sources */,
 				023984DF26E6157700D99FBA /* Comment.swift in Sources */,
 				021F5C8826D2BD89000F708C /* DetailPostViewController.swift in Sources */,
