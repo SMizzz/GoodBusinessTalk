@@ -13,7 +13,6 @@ class DetailPostViewController: UIViewController {
   
   var id: String = ""
   var postData: Post?
-  var commentData: Post?
   private let token = UserDefaults.standard.string(forKey: "token")
   
   override func viewDidLoad() {
@@ -142,29 +141,36 @@ extension DetailPostViewController: DetailPostTextViewDelegate {
   func updateTextViewHeight(
     _ cell: DetailPostTextViewTableViewCell,
     _ textView: UITextView) {
-    let size = textView.bounds.size
-    let newSize = tableView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
-    if size.height != newSize.height {
-      UIView.setAnimationsEnabled(false)
-      tableView.beginUpdates()
-      tableView.endUpdates()
-      UIView.setAnimationsEnabled(true)
+      let size = textView.bounds.size
+      let newSize = tableView.sizeThatFits(CGSize(width: size.width, height: CGFloat.greatestFiniteMagnitude))
+      if size.height != newSize.height {
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+      }
     }
-  }
   
   
   func textViewToDetailPostVC(_ text: String) {
+    if text == "" || text == "댓글달기..." {
+      let alertVC = UIAlertController(title: "⚡", message: "빈 칸입니다.", preferredStyle: .alert)
+      self.present(alertVC, animated: true, completion: nil)
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        self.dismiss(animated: true, completion: nil)
+      }
+    }
+    
     PostsNetworkManager.postComment(
       source: .addComment(
         id: id,
         name: "noze",
         text: text,
         token: token!)
-    ) { (post) in
-      OperationQueue.main.addOperation {
-        self.tableView.reloadData()
-      }
+    ) { (comment) in
+      self.postData = comment
+      self.tableView.reloadData()
     }
   }
-  
 }

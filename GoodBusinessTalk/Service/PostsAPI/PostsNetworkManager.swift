@@ -44,7 +44,7 @@ class PostsNetworkManager {
       case .success(let res):
         print(res)
         do {
-          let postData = try JSONDecoder().decode(Post.self, from: res.data)
+//          let postData = try JSONDecoder().decode(Post.self, from: res.data)
           completion(true)
         } catch let err {
           print(err.localizedDescription)
@@ -78,6 +78,26 @@ class PostsNetworkManager {
     }
   }
   
+//  static func postComment(
+//    source: PostsAPI,
+//    completion: @escaping(Post) -> ()
+//  ) {
+//    provider.request(source) { (result) in
+//      switch result {
+//      case .success(let res):
+//        do {
+//          let addComment = try JSONDecoder().decode(Post.self, from: res.data)
+//          completion(addComment)
+//        } catch let err {
+//          print(err.localizedDescription)
+//          return
+//        }
+//      case .failure(let err):
+//        print(err.localizedDescription)
+//        return
+//      }
+//    }
+//  }
   static func postComment(
     source: PostsAPI,
     completion: @escaping(Post) -> ()
@@ -98,6 +118,5 @@ class PostsNetworkManager {
       }
     }
   }
-  
 }
 

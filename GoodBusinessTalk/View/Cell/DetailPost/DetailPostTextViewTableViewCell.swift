@@ -52,6 +52,7 @@ class DetailPostTextViewTableViewCell: UITableViewCell {
   
   @IBAction func sendBtnTap(_ sender: Any) {
     delegate?.textViewToDetailPostVC(commentTextView.text)
+    commentTextView.text = ""
   }
   
 }
