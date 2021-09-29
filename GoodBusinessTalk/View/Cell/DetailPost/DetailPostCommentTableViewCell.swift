@@ -26,6 +26,13 @@ class DetailPostCommentTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
+  func update(comment: Comment) {
+    nicknameLabel.text = comment.name
+    levelTitleLabel.text = "사원"
+    dateLabel.text = comment.date
+    commentContentLabel.text = comment.text
+  }
+  
   func configureBGView() {
     commnetView.layer.cornerRadius = 20
     commnetView.layer.shadowColor = UIColor.lightGray.cgColor

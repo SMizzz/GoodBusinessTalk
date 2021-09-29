@@ -12,7 +12,9 @@ class DetailPostViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var id: String = ""
-  var postData: Post?
+//  var postData: Post?
+  var postViewModel = DetailPostViewModel()
+  
   private let token = UserDefaults.standard.string(forKey: "token")
   
   override func viewDidLoad() {
@@ -40,7 +42,8 @@ class DetailPostViewController: UIViewController {
   
   private func getData() {
     PostsNetworkManager.getDetailPost(source: .detailPost(id: id, token: token!)) { (post) in
-      self.postData = post
+      self.postViewModel.postData = post
+      print("post is \(post)")
       self.tableView.reloadData()
     }
     
@@ -66,11 +69,12 @@ extension DetailPostViewController:
     numberOfRowsInSection section: Int
   ) -> Int {
     if section == 0 {
-      return 1
+      return postViewModel.numberOfSections
     } else if section == 1 {
       return 1
     } else if section == 2 {
-      return postData?.comment!.count ?? 0
+//      return postData?.comment!.count ?? 0
+      return postViewModel.postData?.comment!.count ?? 0
     }
     return 1
   }
@@ -81,10 +85,10 @@ extension DetailPostViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTableViewCell", for: indexPath) as! DetailPostTableViewCell
-      cell.nicknameLabel.text = postData?.name
-      cell.levelTitleLabel.text = postData?.user?.level
-      cell.dateLabel.text = postData?.createdAt
-      cell.feedDescriptionLabel.text = postData?.text
+      cell.nicknameLabel.text = postViewModel.postData?.name
+      cell.levelTitleLabel.text = postViewModel.postData?.user?.level
+      cell.dateLabel.text = postViewModel.postData?.createdAt
+      cell.feedDescriptionLabel.text = postViewModel.postData?.text
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
@@ -92,11 +96,9 @@ extension DetailPostViewController:
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostCommentTableViewCell", for: indexPath) as! DetailPostCommentTableViewCell
-    let comment = postData?.comment![indexPath.row]
-    cell.nicknameLabel.text = comment?.name
-    cell.levelTitleLabel.text = "인턴"
-    cell.dateLabel.text = comment?.date
-    cell.commentContentLabel.text = comment?.text
+    if let comment = postViewModel.postData?.comment![indexPath.row] {
+      cell.update(comment: comment)
+    }
     return cell
   }
   
@@ -115,7 +117,7 @@ extension DetailPostViewController:
       label.textColor = .darkGray
       label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       label.font = UIFont(name: "SpoqaHans-Regular", size: 8)
-      if let commentCount = postData?.comment!.count {
+      if let commentCount = postViewModel.postData?.comment?.count {
         label.text = "댓글 \(commentCount)개"
       }
       
@@ -168,8 +170,8 @@ extension DetailPostViewController: DetailPostTextViewDelegate {
         name: "noze",
         text: text,
         token: token!)
-    ) { (comment) in
-      self.postData = comment
+    ) { (post) in
+      self.postViewModel.postData = post
       self.tableView.reloadData()
     }
   }
