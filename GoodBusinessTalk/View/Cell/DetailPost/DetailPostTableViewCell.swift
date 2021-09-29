@@ -36,4 +36,11 @@ class DetailPostTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
+  func update(post: Post) {
+    nicknameLabel.text = post.name
+    levelTitleLabel.text = post.user?.level
+    dateLabel.text = post.createdAt
+    feedDescriptionLabel.text = post.text
+  }
+  
 }

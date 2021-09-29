@@ -73,7 +73,6 @@ extension DetailPostViewController:
     } else if section == 1 {
       return 1
     } else if section == 2 {
-//      return postData?.comment!.count ?? 0
       return postViewModel.postData?.comment!.count ?? 0
     }
     return 1
@@ -85,10 +84,9 @@ extension DetailPostViewController:
   ) -> UITableViewCell {
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTableViewCell", for: indexPath) as! DetailPostTableViewCell
-      cell.nicknameLabel.text = postViewModel.postData?.name
-      cell.levelTitleLabel.text = postViewModel.postData?.user?.level
-      cell.dateLabel.text = postViewModel.postData?.createdAt
-      cell.feedDescriptionLabel.text = postViewModel.postData?.text
+      if let postData = postViewModel.postData {
+        cell.update(post: postData)
+      }
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
