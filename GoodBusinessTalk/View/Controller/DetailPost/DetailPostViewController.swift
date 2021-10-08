@@ -19,6 +19,7 @@ class DetailPostViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("detailVC's id is \(id)")
     navigationController?.navigationBar.barTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
     configureTableView()
     getData()
@@ -87,6 +88,7 @@ extension DetailPostViewController:
       if let postData = postViewModel.postData {
         cell.update(post: postData)
       }
+      cell.delegate = self
       return cell
     } else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: "DetailPostTextViewTableViewCell", for: indexPath) as! DetailPostTextViewTableViewCell
@@ -173,4 +175,18 @@ extension DetailPostViewController: DetailPostTextViewDelegate {
       self.tableView.reloadData()
     }
   }
+}
+
+extension DetailPostViewController: DetailPostCellDelegate {
+  func likeButtonTapped(cell: DetailPostTableViewCell) {
+    let indexPath = self.tableView.indexPath(for: cell)
+    
+    PostsNetworkManager.postLike(source: .addLike(id: id, token: token!)) { (post) in
+      self.postViewModel.postData = post
+      self.tableView.reloadData()
+    }
+    
+  }
+  
+  
 }

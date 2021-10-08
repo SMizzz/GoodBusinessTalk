@@ -7,8 +7,14 @@
 
 import UIKit
 
-class DetailPostTableViewCell: UITableViewCell {
+protocol DetailPostCellDelegate: AnyObject {
+  func likeButtonTapped(cell: DetailPostTableViewCell)
+}
 
+class DetailPostTableViewCell: UITableViewCell {
+  
+  weak var delegate: DetailPostCellDelegate?
+  
   @IBOutlet weak var detailPostView: UIView!
   @IBOutlet weak var nicknameLabel: UILabel!
   @IBOutlet weak var levelTitleLabel: UILabel!
@@ -42,5 +48,10 @@ class DetailPostTableViewCell: UITableViewCell {
     dateLabel.text = post.createdAt
     feedDescriptionLabel.text = post.text
   }
+  
+  @IBAction func likeBtnTap(_ sender: Any) {
+    delegate?.likeButtonTapped(cell: self)
+  }
+  
   
 }

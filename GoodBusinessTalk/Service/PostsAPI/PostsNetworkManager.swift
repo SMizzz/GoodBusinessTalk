@@ -44,7 +44,7 @@ class PostsNetworkManager {
       case .success(let res):
         print(res)
         do {
-//          let postData = try JSONDecoder().decode(Post.self, from: res.data)
+          //          let postData = try JSONDecoder().decode(Post.self, from: res.data)
           completion(true)
         } catch let err {
           print(err.localizedDescription)
@@ -68,11 +68,32 @@ class PostsNetworkManager {
           let detailPostData = try JSONDecoder().decode(Post.self, from: res.data)
           completion(detailPostData)
         } catch let err {
-          print(err.localizedDescription)
+          print(err)
           return
         }
       case .failure(let err):
         print(err)
+        return
+      }
+    }
+  }
+  
+  static func postLike (
+    source: PostsAPI,
+    completion: @escaping(Post) -> ()
+  ) {
+    provider.request(source) { result in
+      switch result {
+      case .success(let res):
+        do {
+          let addLike = try JSONDecoder().decode(Post.self, from: res.data)
+          completion(addLike)
+        } catch let err {
+          print(err)
+          return
+        }
+      case .failure(let err):
+        print(err.localizedDescription)
         return
       }
     }

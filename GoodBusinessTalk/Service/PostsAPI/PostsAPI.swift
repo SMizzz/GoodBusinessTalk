@@ -11,6 +11,7 @@ enum PostsAPI {
   case allPosts
   case detailPost(id: String, token: String)
   case postRegister(name: String, text: String, token: String)
+  case addLike(id: String, token: String)
   case addComment(id: String, name: String, text: String, token: String)
 }
 
@@ -30,6 +31,8 @@ extension PostsAPI: TargetType {
       return "/\(id)"
     case .postRegister(_, _, _):
       return "/"
+    case .addLike(let id, _):
+      return "/like/\(id)"
     case .addComment(let id, _, _, _):
       return "/comment/\(id)"
     }
@@ -39,7 +42,7 @@ extension PostsAPI: TargetType {
     switch self {
     case .allPosts, .detailPost(_, _):
       return .get
-    case .postRegister(_, _, _), .addComment(_, _, _, _):
+    case .postRegister(_, _, _), .addLike(_, _), .addComment(_, _, _, _):
       return .post
     }
   }
@@ -58,6 +61,8 @@ extension PostsAPI: TargetType {
       return .requestParameters(
         parameters: ["name": name, "text": text],
         encoding: JSONEncoding.default)
+    case .addLike(_, _):
+      return .requestPlain
     case .addComment(_, let name, let text, _):
       return .requestParameters(
         parameters: ["name": name, "text": text],
@@ -69,7 +74,7 @@ extension PostsAPI: TargetType {
     switch self {
     case .allPosts:
       return ["Content-Type": "application/json"]
-    case .detailPost(_, let token), .postRegister(_, _, let token), .addComment(_, _, _, let token):
+    case .detailPost(_, let token), .postRegister(_, _, let token), .addLike(_, let token), .addComment(_, _, _, let token):
       return ["Authorization": "Bearer \(token)"]
     }
   }
